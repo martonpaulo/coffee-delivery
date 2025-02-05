@@ -61,7 +61,7 @@ In the project directory, you can run the following scripts:
 - [x] Change port to 3000
 - [x] Initial setup by clearing unnecessary files
 - [x] Update `package.json` settings
-- [ ] Add GitHub Actions and deploy to GitHub Pages
+- [x] Add GitHub Actions and deploy to GitHub Pages
 - [ ] Styled Components
 - [ ] State management
 - [ ] Context API
