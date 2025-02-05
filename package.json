@@ -1,26 +1,46 @@
 {
   "name": "coffee-delivery",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://www.martonpaulo.com",
+  "author": {
+    "name": "Marton Paulo",
+    "email": "info@martonpaulo.com",
+    "url": "https://www.martonpaulo.com"
+  },
+  "description": "Modern and convenient online platform for coffee lovers. Browse a curated selection of high-quality coffees, customize your order, and enjoy a seamless shopping experience.",
+  "keywords": [
+    "coffee",
+    "delivery",
+    "shopping",
+    "ecommerce"
+  ],
+  "repository": "github:martonpaulo/coffee-delivery",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint src/**/*.{tsx,ts}"
   },
   "dependencies": {
+    "phosphor-react": "^1.4.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@types/node": "^22.10.7",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "@types/styled-components": "^5.1.34",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.19.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.18",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.14.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",

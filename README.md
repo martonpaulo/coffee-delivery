@@ -56,11 +56,12 @@ In the project directory, you can run the following scripts:
 - [x] Add GitHub description
 - [x] Add README description
 - [x] Add License
-- [ ] Set up ESLint
+- [x] Set up ESLint
+- [x] Add project favicon
+- [x] Change port to 3000
+- [x] Initial setup by clearing unnecessary files
+- [x] Update `package.json` settings
 - [ ] Add GitHub Actions and deploy to GitHub Pages
-- [ ] Change port to 3000
-- [ ] Update `package.json` settings
-- [ ] Initial setup by clearing unnecessary files
 - [ ] Styled Components
 - [ ] State management
 - [ ] Context API
