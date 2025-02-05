@@ -62,7 +62,7 @@ In the project directory, you can run the following scripts:
 - [x] Initial setup by clearing unnecessary files
 - [x] Update `package.json` settings
 - [x] Add GitHub Actions and deploy to GitHub Pages
-- [ ] Styled Components
+- [x] Styled Components
 - [ ] State management
 - [ ] Context API
 - [ ] LocalStorage

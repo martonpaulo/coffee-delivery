@@ -1,3 +1,17 @@
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+
+import { Router } from "@/Router";
+import { GlobalStyle } from "@/styles/global";
+import { defaultTheme } from "@/styles/themes/default";
+
 export function App() {
-  return <h1>Coffee Delivery</h1>;
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter basename="/coffee-delivery">
+        <Router />
+      </BrowserRouter>
+      <GlobalStyle />
+    </ThemeProvider>
+  );
 }
