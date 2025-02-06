@@ -12,13 +12,13 @@ export const defaultTheme = {
     baseSubtitle: "#403937",
     baseTitle: "#272221",
 
-    yellowLight: "#F1E9C9",
+    lightYellow: "#F1E9C9",
     yellow: "#DBAC2C",
-    yellowDark: "#C47F17",
+    darkYellow: "#C47F17",
 
-    purpleLight: "#EBE5F9",
+    lightPurple: "#EBE5F9",
     purple: "#8047F8",
-    purpleDark: "#4B2995",
+    darkPurple: "#4B2995",
   },
 
   screens: {

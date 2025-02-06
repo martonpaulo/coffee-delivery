@@ -1,12 +1,13 @@
+import { CoffeeList } from "@/components/CoffeeList/CoffeeList";
 import { HomeWrapper } from "@/components/Homepage/Homepage.styles";
-import { ButtonG, TextM, TitleXL } from "@/styles/typography";
+import { Summary } from "@/components/Summary/Summary";
 
 export function Homepage() {
   return (
     <HomeWrapper>
-      <TitleXL>Welcome to Coffee Delivery!</TitleXL>
-      <TextM bold>This is a bold text</TextM>
-      <ButtonG>Buy now</ButtonG>
+      <Summary />
+
+      <CoffeeList />
     </HomeWrapper>
   );
 }
