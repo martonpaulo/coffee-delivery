@@ -63,15 +63,15 @@ In the project directory, you can run the following scripts:
 - [x] Update `package.json` settings
 - [x] Add GitHub Actions and deploy to GitHub Pages
 - [x] Styled Components
+- [x] Props
+- [x] Componentization
+- [x] Display a list of available coffee products
+- [x] Lists and keys in React
 - [ ] State management
 - [ ] Context API
 - [ ] LocalStorage
 - [ ] State immutability
-- [ ] Lists and keys in React
-- [ ] Props
-- [ ] Componentization
 - [ ] Array manipulation with the `reduce` method
-- [ ] Display a list of available coffee products
 - [ ] Add a specific quantity of items to the cart
 - [ ] Increase or remove item quantities in the cart
 - [ ] Create a form for users to enter their address
