@@ -1,6 +1,7 @@
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
 import { BackgroundImage, CoffeeAndBeansImage } from "@/assets";
+import { TextWithIcon } from "@/components/TextWithIcon/TextWithIcon";
 import {
   BackgroundWrapper,
   BenefitsList,
@@ -8,8 +9,7 @@ import {
   ImageWrapper,
   SummaryContainer,
   TitleSection,
-} from "@/components/Summary/Summary.styles";
-import { TextWithIcon } from "@/components/TextWithIcon/TextWithIcon";
+} from "@/pages/Homepage/components/Summary/Summary.styles";
 import { TextL, TextM, TitleXL } from "@/styles/typography";
 
 const BENEFITS = [

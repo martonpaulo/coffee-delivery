@@ -1,13 +1,17 @@
-export type CoffeeImageType = {
-  [key: string]: {
-    src: string;
-    alt: string;
-  };
+import { DetailedHTMLProps, ImgHTMLAttributes } from "react";
+
+type CoffeeImgType = DetailedHTMLProps<
+  ImgHTMLAttributes<HTMLImageElement>,
+  HTMLImageElement
+>;
+
+export type CoffeeImgListType = {
+  [key: string]: CoffeeImgType;
 };
 
 export type CoffeeType = {
   id: number;
-  imageComponent: keyof CoffeeImageType;
+  imageComponent: keyof CoffeeImgListType;
   tags: string[];
   name: string;
   description: string;

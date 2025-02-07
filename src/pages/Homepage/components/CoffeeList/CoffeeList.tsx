@@ -1,8 +1,8 @@
-import { CoffeeCard } from "@/components/CoffeeCard/CoffeeCard";
+import { CoffeeCard } from "@/pages/Homepage/components/CoffeeCard/CoffeeCard";
 import {
   CoffeeListContainer,
   CoffeeListGrid,
-} from "@/components/CoffeeList/CoffeeList.styles";
+} from "@/pages/Homepage/components/CoffeeList/CoffeeList.styles";
 import { TitleL } from "@/styles/typography";
 import { coffeeList } from "@/utils/coffeeConstants";
 

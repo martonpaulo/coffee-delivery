@@ -1,5 +1,6 @@
 import { CoffeeImage } from "@/assets";
 import { CartButton } from "@/components/CartButton/CartButton";
+import { QuantitySelector } from "@/components/QuantitySelector/QuantitySelector";
 import {
   ActionsContainer,
   CoffeeCardContainer,
@@ -9,8 +10,7 @@ import {
   PriceWrapper,
   TagItem,
   TagList,
-} from "@/components/CoffeeCard/CoffeeCard.styles";
-import { QuantitySelector } from "@/components/QuantitySelector/QuantitySelector";
+} from "@/pages/Homepage/components/CoffeeCard/CoffeeCard.styles";
 import { Tag, TextS, TitleM, TitleS } from "@/styles/typography";
 import { CoffeeType } from "@/types/coffee";
 

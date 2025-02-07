@@ -1,5 +1,5 @@
-import { CoffeeList } from "@/components/CoffeeList/CoffeeList";
-import { Summary } from "@/components/Summary/Summary";
+import { CoffeeList } from "@/pages/Homepage/components/CoffeeList/CoffeeList";
+import { Summary } from "@/pages/Homepage/components/Summary/Summary";
 import { HomeContainer } from "@/pages/Homepage/Homepage.styles";
 
 export function Homepage() {

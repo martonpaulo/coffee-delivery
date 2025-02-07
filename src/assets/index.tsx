@@ -1,24 +1,24 @@
 import { ImgHTMLAttributes } from "react";
 
-import americano from "@/assets/americano.png";
-import arabicCoffee from "@/assets/arabic-coffee.png";
-import cafeAuLait from "@/assets/cafe-au-lait.png";
-import cappuccino from "@/assets/cappuccino.png";
-import coffeeAndBeans from "@/assets/coffee-and-beans.png";
-import creamyEspresso from "@/assets/creamy-espresso.png";
-import cubanCoffee from "@/assets/cuban-coffee.png";
-import deliveryIllustration from "@/assets/delivery-illustration.svg";
-import hawaiianCoffee from "@/assets/hawaiian-coffee.png";
-import hotChocolate from "@/assets/hot-chocolate.png";
-import icedEspresso from "@/assets/iced-espresso.png";
-import irishCoffee from "@/assets/irish-coffee.png";
-import latte from "@/assets/latte.png";
-import logo from "@/assets/logo-with-name.svg";
-import macchiato from "@/assets/macchiato.png";
-import mocha from "@/assets/mocha.png";
-import background from "@/assets/summary-background.svg";
-import traditionalEspresso from "@/assets/traditional-espresso.png";
-import { CoffeeImageType } from "@/types/coffee";
+import americano from "@/assets/coffee-images/americano.png";
+import arabicCoffee from "@/assets/coffee-images/arabic-coffee.png";
+import cafeAuLait from "@/assets/coffee-images/cafe-au-lait.png";
+import cappuccino from "@/assets/coffee-images/cappuccino.png";
+import creamyEspresso from "@/assets/coffee-images/creamy-espresso.png";
+import cubanCoffee from "@/assets/coffee-images/cuban-coffee.png";
+import hawaiianCoffee from "@/assets/coffee-images/hawaiian-coffee.png";
+import hotChocolate from "@/assets/coffee-images/hot-chocolate.png";
+import icedEspresso from "@/assets/coffee-images/iced-espresso.png";
+import irishCoffee from "@/assets/coffee-images/irish-coffee.png";
+import latte from "@/assets/coffee-images/latte.png";
+import macchiato from "@/assets/coffee-images/macchiato.png";
+import mocha from "@/assets/coffee-images/mocha.png";
+import traditionalEspresso from "@/assets/coffee-images/traditional-espresso.png";
+import coffeeAndBeans from "@/assets/system-design/coffee-and-beans.png";
+import deliveryIllustration from "@/assets/system-design/delivery-illustration.svg";
+import logo from "@/assets/system-design/logo-with-name.svg";
+import background from "@/assets/system-design/summary-background.svg";
+import { CoffeeImgListType } from "@/types/coffee";
 
 type ImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
@@ -48,7 +48,7 @@ export function DeliveryIllustrationImage(props: ImageProps) {
   );
 }
 
-const coffeeImages: CoffeeImageType = {
+const coffeeImgEnum: CoffeeImgListType = {
   traditionalEspresso: {
     src: traditionalEspresso,
     alt: "Traditional espresso in a glass cup",
@@ -74,11 +74,13 @@ const coffeeImages: CoffeeImageType = {
   irishCoffee: { src: irishCoffee, alt: "Irish coffee in a glass cup" },
 };
 
-export function CoffeeImage({
-  name,
-  ...props
-}: { name: keyof typeof coffeeImages } & ImageProps) {
-  const { src, alt } = coffeeImages[name];
+interface CoffeeImageProps {
+  name: keyof CoffeeImgListType;
+  props?: ImageProps;
+}
+
+export function CoffeeImage({ name, props }: CoffeeImageProps) {
+  const { src, alt } = coffeeImgEnum[name];
   return <img src={src} alt={alt} {...props} />;
 }
 
