@@ -22,7 +22,7 @@ export const IconWrapper = styled.div<IconWrapperProps>`
   background-color: ${(props) => props.theme.colors[props.$color]};
 
   svg {
-    fill: ${({ theme }) => theme.colors.background};
+    fill: ${(props) => props.theme.colors.background};
   }
 `;
 
