@@ -1,16 +1,17 @@
 import { ShoppingCart } from "phosphor-react";
 
 import { CartButtonWrapper } from "@/components/CartButton/CartButton.styles";
-import { ColorType } from "@/types/color";
 
 interface CartButtonProps {
-  color?: ColorType;
+  color?: "purple" | "lightYellow";
 }
 
-export function CartButton({ color = "primary" }: CartButtonProps) {
+export function CartButton({ color = "purple" }: CartButtonProps) {
   return (
     <CartButtonWrapper $color={color}>
-      <ShoppingCart size={22} weight="fill" />
+      <a href="/coffee-delivery/success">
+        <ShoppingCart size={22} weight="fill" />
+      </a>
     </CartButtonWrapper>
   );
 }

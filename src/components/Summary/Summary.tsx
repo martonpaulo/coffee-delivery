@@ -3,21 +3,20 @@ import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import { BackgroundImage, CoffeeAndBeansImage } from "@/assets";
 import {
   BackgroundWrapper,
-  BenefitItem,
   BenefitsList,
   ContentContainer,
-  IconWrapper,
   ImageWrapper,
   SummaryContainer,
   TitleSection,
 } from "@/components/Summary/Summary.styles";
+import { TextWithIcon } from "@/components/TextWithIcon/TextWithIcon";
 import { TextL, TextM, TitleXL } from "@/styles/typography";
 
 const BENEFITS = [
-  { icon: ShoppingCart, color: "darkYellow", text: "Easy and secure ordering" },
-  { icon: Package, color: "baseText", text: "Packaging that keeps it fresh" },
-  { icon: Timer, color: "yellow", text: "Fast, trackable delivery" },
-  { icon: Coffee, color: "purple", text: "Your coffee, always perfect" },
+  { Icon: ShoppingCart, color: "darkYellow", text: "Easy and secure ordering" },
+  { Icon: Package, color: "baseText", text: "Packaging that keeps it fresh" },
+  { Icon: Timer, color: "yellow", text: "Fast, trackable delivery" },
+  { Icon: Coffee, color: "purple", text: "Your coffee, always perfect" },
 ] as const;
 
 export function Summary() {
@@ -27,19 +26,15 @@ export function Summary() {
         <TitleSection>
           <TitleXL>Find the perfect coffee for any time of day</TitleXL>
           <TextL>
-            With Coffee Delivery, your coffee comes to you
-            <br /> anytime, anywhere.
+            With Coffee Delivery, your coffee comes to you anytime, anywhere.
           </TextL>
         </TitleSection>
 
         <BenefitsList>
-          {BENEFITS.map(({ icon: Icon, color, text }) => (
-            <BenefitItem key={text}>
-              <IconWrapper $color={color}>
-                <Icon size={16} weight="fill" />
-              </IconWrapper>
+          {BENEFITS.map(({ Icon, color, text }) => (
+            <TextWithIcon key={text} Icon={Icon} color={color}>
               <TextM>{text}</TextM>
-            </BenefitItem>
+            </TextWithIcon>
           ))}
         </BenefitsList>
       </ContentContainer>

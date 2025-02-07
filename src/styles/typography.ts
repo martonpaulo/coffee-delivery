@@ -1,62 +1,76 @@
 import styled from "styled-components";
 
-export const TitleXL = styled.h1`
+import { ColorType } from "@/types/color";
+
+export const TitleXL = styled.h1<{
+  $color?: ColorType;
+}>`
   font-family: ${(props) => props.theme.fonts.title};
   font-size: ${(props) => props.theme.fontSizes.titleXL};
   font-weight: ${(props) => props.theme.fontWeights.extraBold};
   line-height: ${(props) => props.theme.lineHeights.default};
-  color: ${(props) => props.theme.colors.baseTitle};
+  color: ${(props) => props.theme.colors[props.$color || "baseTitle"]};
 `;
 
-export const TitleL = styled.h2`
+export const TitleL = styled.h2<{
+  $color?: ColorType;
+}>`
   font-family: ${(props) => props.theme.fonts.title};
   font-size: ${(props) => props.theme.fontSizes.titleL};
   font-weight: ${(props) => props.theme.fontWeights.extraBold};
   line-height: ${(props) => props.theme.lineHeights.default};
-  color: ${(props) => props.theme.colors.baseSubtitle};
+  color: ${(props) => props.theme.colors[props.$color || "baseSubtitle"]};
 `;
 
-export const TitleM = styled.h3`
+export const TitleM = styled.h3<{
+  $color?: ColorType;
+}>`
   font-family: ${(props) => props.theme.fonts.title};
   font-size: ${(props) => props.theme.fontSizes.titleM};
   font-weight: ${(props) => props.theme.fontWeights.extraBold};
   line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors[props.$color || "baseSubtitle"]};
 `;
 
-export const TitleS = styled.h4`
+export const TitleS = styled.h4<{
+  $color?: ColorType;
+}>`
   font-family: ${(props) => props.theme.fonts.title};
   font-size: ${(props) => props.theme.fontSizes.titleS};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   line-height: ${(props) => props.theme.lineHeights.default};
-  color: ${(props) => props.theme.colors.baseSubtitle};
+  color: ${(props) => props.theme.colors[props.$color || "baseSubtitle"]};
 `;
 
-export const TitleXS = styled.h5`
+export const TitleXS = styled.h5<{
+  $color?: ColorType;
+}>`
   font-family: ${(props) => props.theme.fonts.title};
   font-size: ${(props) => props.theme.fontSizes.titleXS};
   font-weight: ${(props) => props.theme.fontWeights.bold};
-  line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors[props.$color || "baseSubtitle"]};
 `;
 
-export const TextL = styled.p<{ bold?: boolean }>`
+export const TextL = styled.p<{ $bold?: boolean; $color?: ColorType }>`
   font-family: ${(props) => props.theme.fonts.text};
   font-size: ${(props) => props.theme.fontSizes.textL};
   font-weight: ${(props) =>
-    props.bold
+    props.$bold
       ? props.theme.fontWeights.bold
       : props.theme.fontWeights.regular};
   line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors[props.$color || "baseText"]};
 `;
 
-export const TextM = styled.p<{ bold?: boolean }>`
+export const TextM = styled.p<{ $bold?: boolean; $color?: ColorType }>`
   font-family: ${(props) => props.theme.fonts.text};
   font-size: ${(props) => props.theme.fontSizes.textM};
   font-weight: ${(props) =>
-    props.bold
+    props.$bold
       ? props.theme.fontWeights.bold
       : props.theme.fontWeights.regular};
   line-height: ${(props) => props.theme.lineHeights.default};
-  color: ${(props) => props.theme.colors.baseTitle};
+  color: ${(props) => props.theme.colors[props.$color || "baseText"]};
 `;
 
 export const TextS = styled.p`

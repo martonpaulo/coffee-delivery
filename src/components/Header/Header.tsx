@@ -14,7 +14,9 @@ export function Header() {
   return (
     <HeaderWrapper>
       <HeaderContainer>
-        <LogoImage />
+        <a href="/">
+          <LogoImage />
+        </a>
 
         <HeaderActions>
           <LocationButton>
@@ -22,7 +24,7 @@ export function Header() {
             <TextS>Madrid, Spain</TextS>
           </LocationButton>
 
-          <CartButton color="secondary" />
+          <CartButton color="lightYellow" />
         </HeaderActions>
       </HeaderContainer>
     </HeaderWrapper>

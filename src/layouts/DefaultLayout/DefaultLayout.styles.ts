@@ -11,6 +11,7 @@ export const LayoutContainer = styled.div`
 `;
 
 export const MainWrapper = styled.main`
-  margin-top: 6.5rem;
+  margin-top: 7rem;
   max-width: ${(props) => props.theme.sizes.pageWidth};
+  width: 100%;
 `;

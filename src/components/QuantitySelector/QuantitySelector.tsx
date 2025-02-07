@@ -31,7 +31,7 @@ export function QuantitySelector() {
       </DecrementButton>
 
       <QuantityText>
-        <TextM>{quantity}</TextM>
+        <TextM $color="baseTitle">{quantity}</TextM>
       </QuantityText>
 
       <IncrementButton

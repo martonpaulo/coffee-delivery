@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
-import { ColorType } from "@/types/color";
-
-export interface CartButtonWrapperProps {
-  $color: ColorType;
+interface CartButtonWrapperProps {
+  $color: "purple" | "lightYellow";
 }
 
 export const CartButtonWrapper = styled.button<CartButtonWrapperProps>`
@@ -17,30 +15,30 @@ export const CartButtonWrapper = styled.button<CartButtonWrapperProps>`
   padding: 0.5rem;
   cursor: pointer;
 
-  background-color: ${(props) =>
-    props.$color === "primary"
-      ? props.theme.colors.purple
-      : props.theme.colors.lightYellow};
+  background-color: ${(props) => props.theme.colors[props.$color]};
 
-  svg {
-    fill: ${(props) =>
-      props.$color === "primary"
-        ? props.theme.colors.baseCard
-        : props.theme.colors.darkYellow};
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: ${(props) =>
+        props.$color === "purple"
+          ? props.theme.colors.baseCard
+          : props.theme.colors.darkYellow};
+    }
   }
 
   &:hover,
   &:focus {
     background-color: ${(props) =>
-      props.$color === "primary"
+      props.$color === "purple"
         ? props.theme.colors.darkPurple
-        : props.theme.colors.darkYellow};
+        : props.theme.colors.yellow};
 
     svg {
-      fill: ${(props) =>
-        props.$color === "primary"
-          ? props.theme.colors.baseCard
-          : props.theme.colors.baseCard};
+      fill: ${(props) => props.theme.colors.baseCard};
     }
   }
 `;

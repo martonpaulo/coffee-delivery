@@ -7,6 +7,7 @@ import cappuccino from "@/assets/cappuccino.png";
 import coffeeAndBeans from "@/assets/coffee-and-beans.png";
 import creamyEspresso from "@/assets/creamy-espresso.png";
 import cubanCoffee from "@/assets/cuban-coffee.png";
+import deliveryIllustration from "@/assets/delivery-illustration.svg";
 import hawaiianCoffee from "@/assets/hawaiian-coffee.png";
 import hotChocolate from "@/assets/hot-chocolate.png";
 import icedEspresso from "@/assets/iced-espresso.png";
@@ -36,7 +37,15 @@ export function BackgroundImage(props: ImageProps) {
 }
 
 export function CoffeeAndBeansImage(props: ImageProps) {
-  return <img src={coffeeAndBeans} alt="" {...props} />;
+  return (
+    <img src={coffeeAndBeans} alt="Coffee beans and ground coffee" {...props} />
+  );
+}
+
+export function DeliveryIllustrationImage(props: ImageProps) {
+  return (
+    <img src={deliveryIllustration} alt="Delivery illustration" {...props} />
+  );
 }
 
 const coffeeImages: CoffeeImageType = {

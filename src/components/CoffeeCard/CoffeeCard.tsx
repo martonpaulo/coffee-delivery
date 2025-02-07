@@ -43,7 +43,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       <FooterContainer>
         <PriceWrapper>
           <TextS>$</TextS>
-          <TitleM>{price.toFixed(2)}</TitleM>
+          <TitleM $color="baseText">{price.toFixed(2)}</TitleM>
         </PriceWrapper>
 
         <ActionsContainer>

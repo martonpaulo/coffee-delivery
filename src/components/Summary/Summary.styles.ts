@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const SummaryContainer = styled.main`
   display: flex;
   justify-content: space-between;
-  padding: 5.875rem 0;
+  align-content: center;
+  margin: 5.875rem 0;
 `;
 
 export const ContentContainer = styled.div`
@@ -19,20 +20,16 @@ export const TitleSection = styled.div`
   gap: 1rem;
 `;
 
-export const BenefitsList = styled.ul`
+export const BenefitsList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
 `;
 
-export const BenefitItem = styled.li`
+export const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-`;
-
-export const ImageWrapper = styled.div`
-  position: relative;
+  align-content: center;
 `;
 
 export const BackgroundWrapper = styled.div`
@@ -41,6 +38,7 @@ export const BackgroundWrapper = styled.div`
   img {
     position: absolute;
     left: 0;
+    top: 5.875rem;
     width: 100vw;
     mask-image: linear-gradient(
       to bottom,
@@ -49,30 +47,5 @@ export const BackgroundWrapper = styled.div`
       rgba(0, 0, 0, 1) 80%,
       rgba(0, 0, 0, 0) 100%
     );
-  }
-`;
-
-const ICON_COLORS = {
-  darkYellow: "darkYellow",
-  yellow: "yellow",
-  baseText: "baseText",
-  purple: "purple",
-} as const;
-
-interface IconWrapperProps {
-  $color: keyof typeof ICON_COLORS;
-}
-
-export const IconWrapper = styled.div<IconWrapperProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: ${(props) => props.theme.colors[ICON_COLORS[props.$color]]};
-
-  svg {
-    fill: ${({ theme }) => theme.colors.background};
   }
 `;

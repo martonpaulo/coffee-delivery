@@ -47,7 +47,7 @@ export const LocationButton = styled.button`
 
   &:hover,
   &:focus {
-    background-color: ${(props) => props.theme.colors.darkPurple};
+    background-color: ${(props) => props.theme.colors.purple};
 
     p {
       color: ${(props) => props.theme.colors.baseCard};
