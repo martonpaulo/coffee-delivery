@@ -73,12 +73,15 @@ export const TextM = styled.p<{ $bold?: boolean; $color?: ColorType }>`
   color: ${(props) => props.theme.colors[props.$color || "baseText"]};
 `;
 
-export const TextS = styled.p`
+export const TextS = styled.p<{ $bold?: boolean; $color?: ColorType }>`
   font-family: ${(props) => props.theme.fonts.text};
   font-size: ${(props) => props.theme.fontSizes.textS};
-  font-weight: ${(props) => props.theme.fontWeights.regular};
+  font-weight: ${(props) =>
+    props.$bold
+      ? props.theme.fontWeights.bold
+      : props.theme.fontWeights.regular};
   line-height: ${(props) => props.theme.lineHeights.default};
-  color: ${(props) => props.theme.colors.baseLabel};
+  color: ${(props) => props.theme.colors[props.$color || "baseLabel"]};
 `;
 
 export const TextXS = styled.p`
@@ -97,7 +100,7 @@ export const Tag = styled.span`
   text-transform: uppercase;
 `;
 
-export const ButtonG = styled.button`
+export const ButtonG = styled.span`
   font-family: ${(props) => props.theme.fonts.text};
   font-size: ${(props) => props.theme.fontSizes.buttonG};
   font-weight: ${(props) => props.theme.fontWeights.bold};
@@ -105,10 +108,13 @@ export const ButtonG = styled.button`
   text-transform: uppercase;
 `;
 
-export const ButtonM = styled.button`
+export const ButtonM = styled.span<{
+  $color?: ColorType;
+}>`
   font-family: ${(props) => props.theme.fonts.text};
   font-size: ${(props) => props.theme.fontSizes.buttonM};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   line-height: ${(props) => props.theme.lineHeights.button};
+  color: ${(props) => props.theme.colors[props.$color || "baseSubtitle"]};
   text-transform: uppercase;
 `;
