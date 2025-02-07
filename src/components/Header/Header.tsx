@@ -1,29 +1,30 @@
-import { MapPin, ShoppingCart } from "phosphor-react";
+import { MapPin } from "phosphor-react";
 
 import { LogoImage } from "@/assets";
+import { CartButton } from "@/components/CartButton/CartButton";
 import {
-  CartButton,
   HeaderActions,
   HeaderContainer,
+  HeaderWrapper,
   LocationButton,
 } from "@/components/Header/Header.styles";
 import { TextS } from "@/styles/typography";
 
 export function Header() {
   return (
-    <HeaderContainer>
-      <LogoImage />
+    <HeaderWrapper>
+      <HeaderContainer>
+        <LogoImage />
 
-      <HeaderActions>
-        <LocationButton>
-          <MapPin size={22} weight="fill" />
-          <TextS>Madrid, ES</TextS>
-        </LocationButton>
+        <HeaderActions>
+          <LocationButton>
+            <MapPin size={22} weight="fill" />
+            <TextS>Madrid, Spain</TextS>
+          </LocationButton>
 
-        <CartButton>
-          <ShoppingCart size={22} weight="fill" />
-        </CartButton>
-      </HeaderActions>
-    </HeaderContainer>
+          <CartButton color="secondary" />
+        </HeaderActions>
+      </HeaderContainer>
+    </HeaderWrapper>
   );
 }

@@ -6,8 +6,7 @@ export const coffeeList: CoffeeType[] = [
     imageComponent: "traditionalEspresso",
     tags: ["traditional"],
     name: "Traditional Espresso",
-    description:
-      "Classic espresso made with hot water and finely ground coffee beans",
+    description: "Classic espresso made with hot water and ground coffee beans",
     price: 3.0,
   },
   {
@@ -55,8 +54,7 @@ export const coffeeList: CoffeeType[] = [
     imageComponent: "cappuccino",
     tags: ["traditional", "with milk"],
     name: "Cappuccino",
-    description:
-      "A cinnamon-infused drink with equal parts espresso, milk, and foam",
+    description: "A cinnamon-infused drink with parts espresso, milk, and foam",
     price: 5.5,
   },
   {

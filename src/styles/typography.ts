@@ -5,6 +5,7 @@ export const TitleXL = styled.h1`
   font-size: ${(props) => props.theme.fontSizes.titleXL};
   font-weight: ${(props) => props.theme.fontWeights.extraBold};
   line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors.baseTitle};
 `;
 
 export const TitleL = styled.h2`
@@ -12,6 +13,7 @@ export const TitleL = styled.h2`
   font-size: ${(props) => props.theme.fontSizes.titleL};
   font-weight: ${(props) => props.theme.fontWeights.extraBold};
   line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors.baseSubtitle};
 `;
 
 export const TitleM = styled.h3`
@@ -26,6 +28,7 @@ export const TitleS = styled.h4`
   font-size: ${(props) => props.theme.fontSizes.titleS};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors.baseSubtitle};
 `;
 
 export const TitleXS = styled.h5`
@@ -53,6 +56,7 @@ export const TextM = styled.p<{ bold?: boolean }>`
       ? props.theme.fontWeights.bold
       : props.theme.fontWeights.regular};
   line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors.baseTitle};
 `;
 
 export const TextS = styled.p`
@@ -60,6 +64,7 @@ export const TextS = styled.p`
   font-size: ${(props) => props.theme.fontSizes.textS};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors.baseLabel};
 `;
 
 export const TextXS = styled.p`
@@ -74,6 +79,7 @@ export const Tag = styled.span`
   font-size: ${(props) => props.theme.fontSizes.tag};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors.darkYellow};
   text-transform: uppercase;
 `;
 

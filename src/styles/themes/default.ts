@@ -60,4 +60,8 @@ export const defaultTheme = {
     bold: 700,
     extraBold: 800,
   },
+
+  sizes: {
+    pageWidth: "72rem",
+  },
 };

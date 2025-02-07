@@ -1,14 +1,21 @@
-import { CoffeeItem } from "@/components/CoffeeItem/CoffeeItem";
-import { CoffeeListContainer } from "@/components/CoffeeList/CoffeeList.styles";
+import { CoffeeCard } from "@/components/CoffeeCard/CoffeeCard";
+import {
+  CoffeeListContainer,
+  CoffeeListGrid,
+} from "@/components/CoffeeList/CoffeeList.styles";
+import { TitleL } from "@/styles/typography";
 import { coffeeList } from "@/utils/coffeeConstants";
 
 export function CoffeeList() {
   return (
     <CoffeeListContainer>
-      <h1>Our Coffees</h1>
-      {coffeeList.map((coffee) => (
-        <CoffeeItem key={coffee.id} coffee={coffee} />
-      ))}
+      <TitleL>Our Coffees</TitleL>
+
+      <CoffeeListGrid>
+        {coffeeList.map((coffee) => (
+          <CoffeeCard key={coffee.id} coffee={coffee} />
+        ))}
+      </CoffeeListGrid>
     </CoffeeListContainer>
   );
 }

@@ -1,9 +1,25 @@
 import styled from "styled-components";
 
+export const HeaderWrapper = styled.div`
+  position: fixed;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  background-color: ${(props) => props.theme.colors.background};
+`;
+
 export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  width: 100%;
+  padding: 2rem 0;
+
+  max-width: ${(props) => props.theme.sizes.pageWidth};
 `;
 
 export const HeaderActions = styled.div`
@@ -11,7 +27,7 @@ export const HeaderActions = styled.div`
   gap: 1rem;
 `;
 
-const BaseButton = styled.button`
+export const LocationButton = styled.button`
   border: none;
   height: 2.375rem;
   border-radius: 6px;
@@ -22,18 +38,6 @@ const BaseButton = styled.button`
   padding: 0 0.5rem;
   cursor: pointer;
 
-  transition: background-color 0.3s, color 0.3s;
-
-  &:hover {
-    color: ${(props) => props.theme.colors.white};
-
-    svg {
-      fill: ${(props) => props.theme.colors.baseCard};
-    }
-  }
-`;
-
-export const LocationButton = styled(BaseButton)`
   background-color: ${(props) => props.theme.colors.lightPurple};
   color: ${(props) => props.theme.colors.darkPurple};
 
@@ -41,22 +45,16 @@ export const LocationButton = styled(BaseButton)`
     fill: ${(props) => props.theme.colors.purple};
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: ${(props) => props.theme.colors.darkPurple};
-  }
-`;
 
-export const CartButton = styled(BaseButton)`
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  background-color: ${(props) => props.theme.colors.lightYellow};
+    p {
+      color: ${(props) => props.theme.colors.baseCard};
+    }
 
-  svg {
-    fill: ${(props) => props.theme.colors.darkYellow};
-  }
-
-  &:hover {
-    background-color: ${(props) => props.theme.colors.darkYellow};
+    svg {
+      fill: ${(props) => props.theme.colors.baseCard};
+    }
   }
 `;

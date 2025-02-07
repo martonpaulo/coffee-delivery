@@ -1,35 +1,56 @@
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 
 import { BackgroundImage, CoffeeAndBeansImage } from "@/assets";
-import { SummaryContainer } from "@/components/Summary/Summary.styles";
+import {
+  BackgroundWrapper,
+  BenefitItem,
+  BenefitsList,
+  ContentContainer,
+  IconWrapper,
+  ImageWrapper,
+  SummaryContainer,
+  TitleSection,
+} from "@/components/Summary/Summary.styles";
+import { TextL, TextM, TitleXL } from "@/styles/typography";
+
+const BENEFITS = [
+  { icon: ShoppingCart, color: "darkYellow", text: "Easy and secure ordering" },
+  { icon: Package, color: "baseText", text: "Packaging that keeps it fresh" },
+  { icon: Timer, color: "yellow", text: "Fast, trackable delivery" },
+  { icon: Coffee, color: "purple", text: "Your coffee, always perfect" },
+] as const;
 
 export function Summary() {
   return (
     <SummaryContainer>
-      <BackgroundImage />
-      <h2>Find the perfect coffee for any time of day</h2>
-      <h3>
-        With Coffee Delivery, your coffee comes to you — anytime, anywhere.
-      </h3>
-      <ul>
-        <li>
-          <ShoppingCart size={24} weight="fill" />
-          Easy and secure ordering
-        </li>
-        <li>
-          <Timer size={24} weight="fill" />
-          Fast, trackable delivery
-        </li>
-        <li>
-          <Package size={24} weight="fill" />
-          Packaging that keeps it fresh
-        </li>
-        <li>
-          <Coffee size={24} weight="fill" />
-          Your coffee, always perfect
-        </li>
-      </ul>
-      <CoffeeAndBeansImage />
+      <ContentContainer>
+        <TitleSection>
+          <TitleXL>Find the perfect coffee for any time of day</TitleXL>
+          <TextL>
+            With Coffee Delivery, your coffee comes to you
+            <br /> anytime, anywhere.
+          </TextL>
+        </TitleSection>
+
+        <BenefitsList>
+          {BENEFITS.map(({ icon: Icon, color, text }) => (
+            <BenefitItem key={text}>
+              <IconWrapper $color={color}>
+                <Icon size={16} weight="fill" />
+              </IconWrapper>
+              <TextM>{text}</TextM>
+            </BenefitItem>
+          ))}
+        </BenefitsList>
+      </ContentContainer>
+
+      <ImageWrapper>
+        <CoffeeAndBeansImage />
+      </ImageWrapper>
+
+      <BackgroundWrapper>
+        <BackgroundImage />
+      </BackgroundWrapper>
     </SummaryContainer>
   );
 }

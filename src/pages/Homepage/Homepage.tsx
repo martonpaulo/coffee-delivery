@@ -1,13 +1,13 @@
 import { CoffeeList } from "@/components/CoffeeList/CoffeeList";
-import { HomeWrapper } from "@/components/Homepage/Homepage.styles";
 import { Summary } from "@/components/Summary/Summary";
+import { HomeContainer } from "@/pages/Homepage/Homepage.styles";
 
 export function Homepage() {
   return (
-    <HomeWrapper>
+    <HomeContainer>
       <Summary />
 
       <CoffeeList />
-    </HomeWrapper>
+    </HomeContainer>
   );
 }
