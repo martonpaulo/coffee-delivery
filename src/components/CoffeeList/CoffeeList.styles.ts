@@ -12,4 +12,5 @@ export const CoffeeListGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   gap: 2rem;
+  row-gap: 3rem;
 `;
