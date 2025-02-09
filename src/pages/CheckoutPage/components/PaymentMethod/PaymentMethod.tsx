@@ -4,8 +4,8 @@ import {
   ToggleButtonGroup,
   ToggleOption,
 } from "@/components/ToggleButtonGroup/ToggleButtonGroup";
+import { CheckoutInstruction } from "@/pages/CheckoutPage/components/CheckoutInstruction/CheckoutInstruction";
 import { PaymentMethodContainer } from "@/pages/CheckoutPage/components/PaymentMethod/PaymentMethod.styles";
-import { TextM, TextS } from "@/styles/typography";
 
 const TOGGLE_OPTIONS: ToggleOption[] = [
   { value: "credit", label: "Credit Card", icon: CreditCard },
@@ -16,11 +16,12 @@ const TOGGLE_OPTIONS: ToggleOption[] = [
 export function PaymentMethod() {
   return (
     <PaymentMethodContainer>
-      <CurrencyDollar size={22} />
-      <TextM $color="baseSubtitle">Payment</TextM>
-      <TextS $color="baseText">
-        Payment is made on delivery, choose your payment method
-      </TextS>
+      <CheckoutInstruction
+        icon={CurrencyDollar}
+        iconColor="purple"
+        title="Payment"
+        description="Payment is made on delivery, choose your payment method"
+      />
 
       <ToggleButtonGroup
         name="payment-type"

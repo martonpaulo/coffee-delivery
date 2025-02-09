@@ -9,11 +9,16 @@ import { TextXS } from "@/styles/typography";
 
 export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   optional?: boolean;
+  customSize?: "small" | "medium" | "large";
 }
 
-export function InputText({ optional = false, ...props }: InputTextProps) {
+export function InputText({
+  optional = false,
+  customSize = "large",
+  ...props
+}: InputTextProps) {
   return (
-    <InputTextContainer>
+    <InputTextContainer $size={customSize}>
       <InputWrapper $hasOptional={optional} {...props} />
       {optional && (
         <OptionalText>

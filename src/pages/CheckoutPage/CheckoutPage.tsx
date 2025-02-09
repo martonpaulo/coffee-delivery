@@ -1,3 +1,4 @@
+import { coffeeList } from "@/data/coffeeData";
 import {
   AddressAndPaymentContainer,
   CheckoutPageContainer,
@@ -22,7 +23,7 @@ export function CheckoutPage() {
 
       <SelectedCoffeesContainer>
         <TitleXS>Selected Coffees</TitleXS>
-        <SelectedCoffees />
+        <SelectedCoffees coffees={coffeeList.slice(0, 4)} />
       </SelectedCoffeesContainer>
     </CheckoutPageContainer>
   );

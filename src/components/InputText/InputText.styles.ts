@@ -1,8 +1,18 @@
 import styled from "styled-components";
 
-export const InputTextContainer = styled.div`
+const SIZE_VARIANTS = {
+  small: "30%",
+  medium: "50%",
+  large: "100%",
+} as const;
+
+interface InputTextContainerProps {
+  $size: "small" | "medium" | "large";
+}
+
+export const InputTextContainer = styled.div<InputTextContainerProps>`
   position: relative;
-  width: 100%;
+  width: ${(props) => SIZE_VARIANTS[props.$size]};
 `;
 
 interface InputWrapperProps {
@@ -30,6 +40,12 @@ export const InputWrapper = styled.input<InputWrapperProps>`
 
   &:focus {
     border: 1px solid ${(props) => props.theme.colors.baseButton};
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;
 
