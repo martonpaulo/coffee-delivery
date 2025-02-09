@@ -8,6 +8,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Traditional Espresso",
     description: "Classic espresso made with hot water and ground coffee beans",
     price: 3.0,
+    stock: 12,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Americano",
     description: "Smooth, diluted espresso with a milder flavor",
     price: 3.5,
+    stock: 7,
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Creamy Espresso",
     description: "Traditional espresso topped with a velvety crema",
     price: 3.5,
+    stock: 11,
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Iced Espresso",
     description: "Bold espresso served over ice for a refreshing taste",
     price: 4.0,
+    stock: 5,
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Café au Lait",
     description: "A balanced mix of espresso and steamed milk",
     price: 4.0,
+    stock: 9,
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Latte",
     description: "Espresso with double the milk and a layer of creamy foam",
     price: 5.5,
+    stock: 8,
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Cappuccino",
     description: "A cinnamon-infused drink with parts espresso, milk, and foam",
     price: 5.5,
+    stock: 10,
   },
   {
     id: 8,
@@ -64,6 +71,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Macchiato",
     description: "Rich espresso blended with a touch of warm milk and foam",
     price: 5.0,
+    stock: 6,
   },
   {
     id: 9,
@@ -72,6 +80,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Mocha",
     description: "Espresso with chocolate syrup, a splash of milk, and foam",
     price: 5.5,
+    stock: 4,
   },
   {
     id: 10,
@@ -80,6 +89,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Hot Chocolate",
     description: "A comforting mix of melted chocolate, hot milk, and espresso",
     price: 4.5,
+    stock: 3,
   },
   {
     id: 11,
@@ -88,6 +98,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Cuban Coffee",
     description: "Chilled espresso with rum, cream, and fresh mint",
     price: 6.0,
+    stock: 2,
   },
   {
     id: 12,
@@ -96,6 +107,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Hawaiian Coffee",
     description: "A naturally sweet coffee made with coconut milk",
     price: 5.0,
+    stock: 6,
   },
   {
     id: 13,
@@ -104,6 +116,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Arabic Coffee",
     description: "Spiced Arabic coffee brewed with aromatic spices",
     price: 5.0,
+    stock: 1,
   },
   {
     id: 14,
@@ -113,5 +126,6 @@ export const coffeeList: CoffeeType[] = [
     description:
       "A bold mix of coffee, Irish whiskey, sugar, and whipped cream",
     price: 6.0,
+    stock: 2,
   },
 ];

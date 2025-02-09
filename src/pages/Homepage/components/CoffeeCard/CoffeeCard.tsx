@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { CoffeeImage } from "@/assets";
 import { CartButton } from "@/components/CartButton/CartButton";
 import { QuantitySelector } from "@/components/QuantitySelector/QuantitySelector";
@@ -19,7 +21,13 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
-  const { imageComponent, tags, name, description, price } = coffee;
+  const { imageComponent, tags, name, description, price, stock } = coffee;
+  const [quantity, setQuantity] = useState(1);
+
+  const handleSetQuantity = (quantity: number) => {
+    setQuantity(quantity);
+    console.log(`Selected quantity: ${quantity}`);
+  };
 
   return (
     <CoffeeCardContainer>
@@ -47,7 +55,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
         </PriceWrapper>
 
         <ActionsContainer>
-          <QuantitySelector />
+          <QuantitySelector
+            quantity={quantity}
+            maxQuantity={stock}
+            setQuantity={handleSetQuantity}
+          />
           <CartButton />
         </ActionsContainer>
       </FooterContainer>

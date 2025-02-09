@@ -16,4 +16,5 @@ export type CoffeeType = {
   name: string;
   description: string;
   price: number;
+  stock: number;
 };

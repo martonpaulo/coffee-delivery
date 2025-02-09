@@ -1,49 +1,44 @@
 import { Minus, Plus } from "phosphor-react";
-import { useState } from "react";
 
+import { QuantityButton } from "@/components/QuantityButton/QuantityButton";
+import {
+  QuantitySelectorWrapper,
+  QuantityTextWrapper,
+} from "@/components/QuantitySelector/QuantitySelector.styles";
 import { TextM } from "@/styles/typography";
 
-import { QuantityText } from "./QuantitySelector.styles";
-import {
-  DecrementButton,
-  IncrementButton,
-  QuantitySelectorWrapper,
-} from "./QuantitySelector.styles";
+interface QuantitySelectorProps {
+  quantity: number;
+  maxQuantity: number;
+  setQuantity: (quantity: number) => void;
+}
 
-export function QuantitySelector() {
-  const [quantity, setQuantity] = useState(1);
-  const [hoveredButton, setHoveredButton] = useState<string | null>(null);
-
-  const increase = () => setQuantity((prev) => prev + 1);
-  const decrease = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+export function QuantitySelector({
+  quantity,
+  maxQuantity,
+  setQuantity,
+}: QuantitySelectorProps) {
+  const updateQuantity = (change: number) => {
+    setQuantity(Math.min(Math.max(quantity + change, 1), maxQuantity));
+  };
 
   return (
     <QuantitySelectorWrapper>
-      <DecrementButton
-        onMouseEnter={() => setHoveredButton("minus")}
-        onMouseLeave={() => setHoveredButton(null)}
-        onClick={decrease}
-      >
-        <Minus
-          size={hoveredButton === "plus" ? 16 : 14}
-          weight={hoveredButton === "minus" ? "bold" : "regular"}
-        />
-      </DecrementButton>
+      <QuantityButton
+        onClick={() => updateQuantity(-1)}
+        icon={Minus}
+        disabled={quantity === 1}
+      />
 
-      <QuantityText>
+      <QuantityTextWrapper>
         <TextM $color="baseTitle">{quantity}</TextM>
-      </QuantityText>
+      </QuantityTextWrapper>
 
-      <IncrementButton
-        onMouseEnter={() => setHoveredButton("plus")}
-        onMouseLeave={() => setHoveredButton(null)}
-        onClick={increase}
-      >
-        <Plus
-          size={hoveredButton === "plus" ? 16 : 14}
-          weight={hoveredButton === "plus" ? "bold" : "regular"}
-        />
-      </IncrementButton>
+      <QuantityButton
+        onClick={() => updateQuantity(1)}
+        icon={Plus}
+        disabled={quantity === maxQuantity}
+      />
     </QuantitySelectorWrapper>
   );
 }

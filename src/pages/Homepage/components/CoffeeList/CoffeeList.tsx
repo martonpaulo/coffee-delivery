@@ -1,10 +1,10 @@
+import { coffeeList } from "@/data/coffeeData";
 import { CoffeeCard } from "@/pages/Homepage/components/CoffeeCard/CoffeeCard";
 import {
   CoffeeListContainer,
   CoffeeListGrid,
 } from "@/pages/Homepage/components/CoffeeList/CoffeeList.styles";
 import { TitleL } from "@/styles/typography";
-import { coffeeList } from "@/utils/coffeeConstants";
 
 export function CoffeeList() {
   return (
