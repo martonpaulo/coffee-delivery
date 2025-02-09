@@ -29,7 +29,7 @@ export const InputWrapper = styled.input<InputWrapperProps>`
   }
 
   &:focus {
-    border-color: ${(props) => props.theme.colors.baseButton};
+    border: 1px solid ${(props) => props.theme.colors.baseButton};
   }
 `;
 
