@@ -1,4 +1,5 @@
 import { MapPin } from "phosphor-react";
+import { NavLink } from "react-router-dom";
 
 import { LogoImage } from "@/assets";
 import { CartButton } from "@/components/CartButton/CartButton";
@@ -14,9 +15,9 @@ export function Header() {
   return (
     <HeaderWrapper>
       <HeaderContainer>
-        <a href="/">
+        <NavLink to="/">
           <LogoImage />
-        </a>
+        </NavLink>
 
         <HeaderActions>
           <LocationButton>

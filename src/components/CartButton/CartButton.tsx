@@ -1,5 +1,6 @@
 import { ShoppingCart } from "phosphor-react";
 import { ButtonHTMLAttributes } from "react";
+import { NavLink } from "react-router-dom";
 
 import {
   CartButtonWrapper,
@@ -19,7 +20,7 @@ export function CartButton({
 }: CartButtonProps) {
   return (
     <CartButtonWrapper $color={color} {...props}>
-      <a href="/coffee-delivery/checkout">
+      <NavLink to="/checkout">
         {itemsCount > 0 && color === "lightYellow" && (
           <ItemsCountContainer>
             <TextS $bold $color="white">
@@ -28,7 +29,7 @@ export function CartButton({
           </ItemsCountContainer>
         )}
         <ShoppingCart size={22} weight="fill" />
-      </a>
+      </NavLink>
     </CartButtonWrapper>
   );
 }

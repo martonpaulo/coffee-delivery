@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import { ButtonWithLabel } from "@/components/ButtonWithLabel/ButtonWithLabel";
 import { coffeeList } from "@/data/coffeeData";
 import { CoffeeOrder } from "@/pages/CheckoutPage/components/CoffeeOrder/CoffeeOrder";
@@ -19,7 +21,9 @@ export function SelectedCoffees() {
       <TextL $color="baseSubtitle" $bold>
         $14.00
       </TextL>
-      <ButtonWithLabel label="Confirm Order" onClick={() => {}} />
+      <NavLink to="/success">
+        <ButtonWithLabel label="Confirm Order" onClick={() => {}} />
+      </NavLink>
     </SelectedCoffeesContainer>
   );
 }
