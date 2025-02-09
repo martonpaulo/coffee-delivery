@@ -22,7 +22,7 @@ export function InputText({
       <InputWrapper $hasOptional={optional} {...props} />
       {optional && (
         <OptionalText>
-          <TextXS>Optional</TextXS>
+          <TextXS $italic>Optional</TextXS>
         </OptionalText>
       )}
     </InputTextContainer>

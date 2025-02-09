@@ -13,6 +13,10 @@ interface InputTextContainerProps {
 export const InputTextContainer = styled.div<InputTextContainerProps>`
   position: relative;
   width: ${(props) => SIZE_VARIANTS[props.$size]};
+
+  ${(props) => props.theme.breakpoints.max.md} {
+    width: 100%;
+  }
 `;
 
 interface InputWrapperProps {

@@ -5,6 +5,13 @@ export const SummaryContainer = styled.main`
   justify-content: space-between;
   align-content: center;
   margin: 5.875rem 0;
+
+  ${(props) => props.theme.breakpoints.max.md} {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    margin: 3.5rem 0;
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -12,6 +19,10 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   gap: 4.125rem;
   margin-right: 3.5rem;
+
+  ${(props) => props.theme.breakpoints.max.md} {
+    margin-right: 0;
+  }
 `;
 
 export const TitleSection = styled.div`
@@ -24,6 +35,10 @@ export const BenefitsList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
+
+  ${(props) => props.theme.breakpoints.sm} {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -47,5 +62,9 @@ export const BackgroundWrapper = styled.div`
       rgba(0, 0, 0, 1) 80%,
       rgba(0, 0, 0, 0) 100%
     );
+  }
+
+  ${(props) => props.theme.breakpoints.sm} {
+    display: none;
   }
 `;

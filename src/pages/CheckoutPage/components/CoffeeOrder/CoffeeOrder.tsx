@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { CoffeeImage } from "@/assets";
+import { Dialog } from "@/components/Dialog/Dialog";
 import { QuantitySelector } from "@/components/QuantitySelector/QuantitySelector";
 import { RemoveButton } from "@/components/RemoveButton/RemoveButton";
 import {
@@ -21,10 +22,22 @@ interface CoffeeOrderProps {
 export function CoffeeOrder({ coffee }: CoffeeOrderProps) {
   const { imageComponent, name, price, stock } = coffee;
   const [quantity, setQuantity] = useState(1);
+  const [isDialogOpen, setDialogOpen] = useState(false);
 
   const handleSetQuantity = (quantity: number) => {
     setQuantity(quantity);
-    console.log(`Selected quantity: ${quantity}`);
+  };
+
+  const handleOpenRemoveDialog = () => {
+    setDialogOpen(true);
+  };
+
+  const handleRemoveItem = () => {
+    setDialogOpen(false);
+  };
+
+  const handleCloseDialog = () => {
+    setDialogOpen(false);
   };
 
   return (
@@ -43,8 +56,17 @@ export function CoffeeOrder({ coffee }: CoffeeOrderProps) {
               maxQuantity={stock}
               setQuantity={handleSetQuantity}
             />
-            <RemoveButton
-              onClick={() => console.log("Remove button clicked")}
+            <RemoveButton onClick={handleOpenRemoveDialog} />
+
+            <Dialog
+              title="Remove item?"
+              message="Are you sure you want to remove this from your cart? You can add it again later if you change your mind."
+              isOpen={isDialogOpen}
+              confirmText="Remove item"
+              onConfirm={handleRemoveItem}
+              cancelText="Cancel"
+              onCancel={handleCloseDialog}
+              onClose={handleCloseDialog}
             />
           </ActionsContainer>
         </NameAndActionsContainer>

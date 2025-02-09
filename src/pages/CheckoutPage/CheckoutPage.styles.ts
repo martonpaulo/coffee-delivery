@@ -5,6 +5,11 @@ export const CheckoutPageContainer = styled.div`
   gap: 2rem;
   width: 100%;
   margin-top: 2rem;
+
+  ${(props) => props.theme.breakpoints.max.lg} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const CompleteOrderContainer = styled.div`
@@ -12,6 +17,14 @@ export const CompleteOrderContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   width: 60%;
+
+  ${(props) => props.theme.breakpoints.max.md} {
+    width: 100%;
+  }
+
+  ${(props) => props.theme.breakpoints.lg} {
+    width: 75%;
+  }
 `;
 
 export const AddressAndPaymentContainer = styled.div`
@@ -25,4 +38,12 @@ export const SelectedCoffeesContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   width: 40%;
+
+  ${(props) => props.theme.breakpoints.max.md} {
+    width: 100%;
+  }
+
+  ${(props) => props.theme.breakpoints.lg} {
+    width: 75%;
+  }
 `;

@@ -26,7 +26,7 @@ export const coffeeList: CoffeeType[] = [
     name: "Creamy Espresso",
     description: "Traditional espresso topped with a velvety crema",
     price: 3.5,
-    stock: 11,
+    stock: 0,
   },
   {
     id: 4,

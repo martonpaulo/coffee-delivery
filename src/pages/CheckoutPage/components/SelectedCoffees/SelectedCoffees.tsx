@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { ButtonWithLabel } from "@/components/ButtonWithLabel/ButtonWithLabel";
+import { LoadingDialog } from "@/components/LoadingDialog/LoadingDialog";
 import { CoffeeOrder } from "@/pages/CheckoutPage/components/CoffeeOrder/CoffeeOrder";
 import {
   CoffeeListContainer,
@@ -16,6 +18,18 @@ interface SelectedCoffeesProps {
 }
 
 export function SelectedCoffees({ coffees }: SelectedCoffeesProps) {
+  const [confirmOrderLoading, setConfirmOrderLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSendOrder = () => {
+    setConfirmOrderLoading(true);
+
+    setTimeout(() => {
+      setConfirmOrderLoading(false);
+      navigate("/success");
+    }, 5000);
+  };
+
   return (
     <SelectedCoffeesContainer>
       <CoffeeListContainer>
@@ -43,9 +57,14 @@ export function SelectedCoffees({ coffees }: SelectedCoffeesProps) {
           </TextL>
         </PriceValueContainer>
       </PriceWrapper>
-      <NavLink to="/success">
-        <ButtonWithLabel label="Confirm Order" onClick={() => {}} />
-      </NavLink>
+
+      <ButtonWithLabel label="Confirm Order" onClick={handleSendOrder} />
+
+      <LoadingDialog
+        title="Hang tight!"
+        message=" We're confirming your order. This won't take long."
+        isOpen={confirmOrderLoading}
+      />
     </SelectedCoffeesContainer>
   );
 }

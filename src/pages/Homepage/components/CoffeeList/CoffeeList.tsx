@@ -7,12 +7,19 @@ import {
 import { TitleL } from "@/styles/typography";
 
 export function CoffeeList() {
+  // Move coffees with stock === 0 to the end, keeping original order by ID
+  const sortedCoffeeList = [...coffeeList].sort((a, b) => {
+    if (a.stock === 0 && b.stock > 0) return 1;
+    if (a.stock > 0 && b.stock === 0) return -1;
+    return a.id - b.id; // Keeps original order by ID
+  });
+
   return (
     <CoffeeListContainer>
       <TitleL>Our Coffees</TitleL>
 
       <CoffeeListGrid>
-        {coffeeList.map((coffee) => (
+        {sortedCoffeeList.map((coffee) => (
           <CoffeeCard key={coffee.id} coffee={coffee} />
         ))}
       </CoffeeListGrid>

@@ -68,7 +68,11 @@ In the project directory, you can run the following scripts:
 - [x] Display a list of available coffee products
 - [x] Lists and keys in React
 - [x] Include a limit of items for each product
-- [ ] Add responsive layout
+- [x] Add responsive layout
+- [x] If user tries to add more items than available, show a message
+- [x] Review checkout flow
+- [ ] Add a items number in the cart icon in the header
+- [ ] Add form validation
 - [ ] State management
 - [ ] Context API
 - [ ] LocalStorage

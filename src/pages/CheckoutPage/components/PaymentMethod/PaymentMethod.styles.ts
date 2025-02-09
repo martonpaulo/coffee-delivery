@@ -8,4 +8,8 @@ export const PaymentMethodContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  ${(props) => props.theme.breakpoints.sm} {
+    padding: 1.5rem;
+  }
 `;

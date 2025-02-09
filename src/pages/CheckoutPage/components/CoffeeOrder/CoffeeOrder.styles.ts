@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CoffeeOrderContainer = styled.div`
-  width: 23rem;
+  width: 100%;
   height: 5rem;
   background-color: ${(props) => props.theme.colors.baseCard};
 

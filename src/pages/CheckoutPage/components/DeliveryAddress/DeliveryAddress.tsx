@@ -28,11 +28,7 @@ export function DeliveryAddress() {
         </AddressFormSection>
         <AddressFormSection>
           <InputText type="text" placeholder="Street" />
-          <InputText
-            type="number"
-            placeholder="House Number"
-            customSize="small"
-          />
+          <InputText type="number" placeholder="Number" customSize="small" />
         </AddressFormSection>
         <AddressFormSection>
           <InputText type="text" placeholder="Additional Info" optional />

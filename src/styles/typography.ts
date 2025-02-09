@@ -84,13 +84,13 @@ export const TextS = styled.p<{ $bold?: boolean; $color?: ColorType }>`
   color: ${(props) => props.theme.colors[props.$color || "baseLabel"]};
 `;
 
-export const TextXS = styled.p`
+export const TextXS = styled.p<{ $italic?: boolean; $color?: ColorType }>`
   font-family: ${(props) => props.theme.fonts.text};
   font-size: ${(props) => props.theme.fontSizes.textXS};
   font-weight: ${(props) => props.theme.fontWeights.regular};
   line-height: ${(props) => props.theme.lineHeights.default};
-  color: ${(props) => props.theme.colors.baseLabel};
-  font-style: italic;
+  color: ${(props) => props.theme.colors[props.$color || "baseLabel"]};
+  font-style: ${(props) => (props.$italic ? "italic" : "normal")};
 `;
 
 export const Tag = styled.span`

@@ -7,6 +7,11 @@ export const SuccessPageContainer = styled.div`
   align-items: flex-end;
 
   gap: 2rem;
+
+  ${(props) => props.theme.breakpoints.max.md} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const OrderConfirmationContainer = styled.div`
@@ -54,4 +59,8 @@ export const DeliveryDetails = styled.div`
 
 export const IllustrationWrapper = styled.div`
   margin-bottom: -0.6875rem;
+
+  ${(props) => props.theme.breakpoints.max.med} {
+    margin-top: 2rem;
+  }
 `;

@@ -5,6 +5,7 @@ import {
   QuantitySelectorWrapper,
   QuantityTextWrapper,
 } from "@/components/QuantitySelector/QuantitySelector.styles";
+import { Tooltip } from "@/components/Tooltip/Tooltip";
 import { TextM } from "@/styles/typography";
 
 interface QuantitySelectorProps {
@@ -18,6 +19,11 @@ export function QuantitySelector({
   quantity,
   setQuantity,
 }: QuantitySelectorProps) {
+  const isOutOfStock = maxQuantity === 0;
+
+  const isDecrementDisabled = quantity === 1 || isOutOfStock;
+  const isIncrementDisabled = quantity === maxQuantity || isOutOfStock;
+
   const increment = () => {
     setQuantity(Math.min(quantity + 1, maxQuantity));
   };
@@ -26,23 +32,35 @@ export function QuantitySelector({
     setQuantity(Math.max(quantity - 1, 1));
   };
 
+  const getItemPlural = () => (maxQuantity > 1 ? "items" : "item");
+
   return (
-    <QuantitySelectorWrapper>
-      <QuantityButton
-        onClick={decrement}
-        icon={Minus}
-        disabled={quantity === 1}
-      />
+    <QuantitySelectorWrapper $disabled={isOutOfStock}>
+      <Tooltip
+        text="You need at least 1 item in your cart"
+        active={isDecrementDisabled && !isOutOfStock}
+      >
+        <QuantityButton
+          onClick={decrement}
+          icon={Minus}
+          disabled={isDecrementDisabled}
+        />
+      </Tooltip>
 
       <QuantityTextWrapper>
         <TextM $color="baseTitle">{quantity}</TextM>
       </QuantityTextWrapper>
 
-      <QuantityButton
-        onClick={increment}
-        icon={Plus}
-        disabled={quantity === maxQuantity}
-      />
+      <Tooltip
+        text={`Only ${maxQuantity} ${getItemPlural()} available in stock`}
+        active={isIncrementDisabled && !isOutOfStock}
+      >
+        <QuantityButton
+          onClick={increment}
+          icon={Plus}
+          disabled={isIncrementDisabled}
+        />
+      </Tooltip>
     </QuantitySelectorWrapper>
   );
 }

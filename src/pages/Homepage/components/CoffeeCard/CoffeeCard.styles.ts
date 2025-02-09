@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export const CoffeeCardContainer = styled.div`
-  width: 16rem;
+interface CoffeeCardContainerProps {
+  $disabled: boolean;
+}
+
+export const CoffeeCardContainer = styled.div<CoffeeCardContainerProps>`
+  width: 100%;
   height: 19.375rem;
   background-color: ${(props) => props.theme.colors.baseCard};
 
@@ -9,13 +13,18 @@ export const CoffeeCardContainer = styled.div`
 
   border-radius: 6px 36px 6px 36px;
 
+  ${(props) => props.$disabled && `opacity: 0.5;`}
+
   position: relative;
 `;
 
 export const ImageWrapper = styled.div`
-  margin-top: -1.25rem;
   display: flex;
   justify-content: center;
+
+  img {
+    margin-top: -1.25rem;
+  }
 `;
 
 export const TagList = styled.ul`

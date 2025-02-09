@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { CoffeeImage } from "@/assets";
-import { CartButton } from "@/components/CartButton/CartButton";
+import { AddToCartButton } from "@/components/AddToCartButton/AddToCartButton";
+import { Dialog } from "@/components/Dialog/Dialog";
 import { QuantitySelector } from "@/components/QuantitySelector/QuantitySelector";
+import { Tooltip } from "@/components/Tooltip/Tooltip";
 import {
   ActionsContainer,
   CoffeeCardContainer,
@@ -22,47 +25,86 @@ interface CoffeeCardProps {
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const { imageComponent, tags, name, description, price, stock } = coffee;
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(stock > 0 ? 1 : 0);
+  const [isDialogOpen, setDialogOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const isOutOfStock = stock === 0;
 
   const handleSetQuantity = (quantity: number) => {
     setQuantity(quantity);
-    console.log(`Selected quantity: ${quantity}`);
+  };
+
+  const handleAddToCart = () => {
+    setDialogOpen(true);
+  };
+
+  const handleGoToCart = () => {
+    navigate("/checkout");
+    setDialogOpen(false);
+  };
+
+  const handleContinueShopping = () => {
+    setDialogOpen(false);
+  };
+
+  const handleCloseDialog = () => {
+    setDialogOpen(false);
   };
 
   return (
-    <CoffeeCardContainer>
-      <ImageWrapper>
-        <CoffeeImage name={imageComponent} />
-      </ImageWrapper>
+    <Tooltip
+      text="Sold out, but we’re working to restock it!"
+      active={isOutOfStock}
+    >
+      <CoffeeCardContainer $disabled={isOutOfStock}>
+        <ImageWrapper>
+          <CoffeeImage name={imageComponent} />
+        </ImageWrapper>
 
-      <TagList>
-        {tags.map((tag) => (
-          <TagItem key={tag}>
-            <Tag>{tag}</Tag>
-          </TagItem>
-        ))}
-      </TagList>
+        <TagList>
+          {tags.map((tag) => (
+            <TagItem key={tag}>
+              <Tag>{tag}</Tag>
+            </TagItem>
+          ))}
+        </TagList>
 
-      <DetailsContainer>
-        <TitleS>{name}</TitleS>
-        <TextS>{description}</TextS>
-      </DetailsContainer>
+        <DetailsContainer>
+          <TitleS>{name}</TitleS>
+          <TextS>{description}</TextS>
+        </DetailsContainer>
 
-      <FooterContainer>
-        <PriceContainer>
-          <TextS>$</TextS>
-          <TitleM $color="baseText">{price.toFixed(2)}</TitleM>
-        </PriceContainer>
+        <FooterContainer>
+          <PriceContainer>
+            <TextS>$</TextS>
+            <TitleM $color="baseText">{price.toFixed(2)}</TitleM>
+          </PriceContainer>
 
-        <ActionsContainer>
-          <QuantitySelector
-            quantity={quantity}
-            maxQuantity={stock}
-            setQuantity={handleSetQuantity}
-          />
-          <CartButton />
-        </ActionsContainer>
-      </FooterContainer>
-    </CoffeeCardContainer>
+          <ActionsContainer>
+            <QuantitySelector
+              quantity={quantity}
+              maxQuantity={stock}
+              setQuantity={handleSetQuantity}
+            />
+            <AddToCartButton
+              onClick={handleAddToCart}
+              disabled={isOutOfStock}
+            />
+          </ActionsContainer>
+        </FooterContainer>
+
+        <Dialog
+          title="Item added to cart!"
+          message={`${quantity}x ${name} was added to your cart`}
+          isOpen={isDialogOpen}
+          confirmText="Go to checkout"
+          onConfirm={handleGoToCart}
+          cancelText="Continue shopping"
+          onCancel={handleContinueShopping}
+          onClose={handleCloseDialog}
+        />
+      </CoffeeCardContainer>
+    </Tooltip>
   );
 }

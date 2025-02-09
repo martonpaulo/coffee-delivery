@@ -9,6 +9,7 @@ import {
   HeaderWrapper,
   LocationButton,
 } from "@/components/Header/Header.styles";
+import { Tooltip } from "@/components/Tooltip/Tooltip";
 import { TextS } from "@/styles/typography";
 
 export function Header() {
@@ -20,12 +21,14 @@ export function Header() {
         </NavLink>
 
         <HeaderActions>
-          <LocationButton>
-            <MapPin size={22} weight="fill" />
-            <TextS>Madrid, Spain</TextS>
-          </LocationButton>
+          <Tooltip text="You can't change your location yet">
+            <LocationButton>
+              <MapPin size={22} weight="fill" />
+              <TextS>Madrid, Spain</TextS>
+            </LocationButton>
+          </Tooltip>
 
-          <CartButton color="lightYellow" />
+          <CartButton itemsCount={0} />
         </HeaderActions>
       </HeaderContainer>
     </HeaderWrapper>

@@ -20,6 +20,18 @@ export const HeaderContainer = styled.header`
   padding: 2rem 0;
 
   max-width: ${(props) => props.theme.sizes.pageWidth};
+
+  ${(props) => props.theme.breakpoints.lg} {
+    padding: 2rem 2rem;
+  }
+
+  ${(props) => props.theme.breakpoints.md} {
+    padding: 1rem 2rem;
+  }
+
+  ${(props) => props.theme.breakpoints.sm} {
+    padding: 1rem 1rem;
+  }
 `;
 
 export const HeaderActions = styled.div`
@@ -36,25 +48,12 @@ export const LocationButton = styled.button`
   align-items: center;
   gap: 0.25rem;
   padding: 0 0.5rem;
-  cursor: pointer;
+  cursor: not-allowed;
 
   background-color: ${(props) => props.theme.colors.lightPurple};
   color: ${(props) => props.theme.colors.darkPurple};
 
   svg {
     fill: ${(props) => props.theme.colors.purple};
-  }
-
-  &:hover,
-  &:focus {
-    background-color: ${(props) => props.theme.colors.purple};
-
-    p {
-      color: ${(props) => props.theme.colors.baseCard};
-    }
-
-    svg {
-      fill: ${(props) => props.theme.colors.baseCard};
-    }
   }
 `;

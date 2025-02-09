@@ -7,14 +7,23 @@ export const DeliveryAddressContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  ${(props) => props.theme.breakpoints.sm} {
+    padding: 1.5rem;
+  }
 `;
 
 export const AddressFormContainer = styled.form`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 `;
 
 export const AddressFormSection = styled.div`
   display: flex;
   gap: 0.75rem;
+
+  ${(props) => props.theme.breakpoints.max.md} {
+    flex-direction: column;
+  }
 `;

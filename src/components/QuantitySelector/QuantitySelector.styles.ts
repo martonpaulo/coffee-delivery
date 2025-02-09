@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const QuantitySelectorWrapper = styled.div`
+interface QuantitySelectorWrapperProps {
+  $disabled: boolean;
+}
+
+export const QuantitySelectorWrapper = styled.div<QuantitySelectorWrapperProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +15,8 @@ export const QuantitySelectorWrapper = styled.div`
 
   &:hover,
   &:focus-within {
-    background-color: ${(props) => props.theme.colors.baseHover};
+    background-color: ${(props) =>
+      !props.$disabled && props.theme.colors.baseHover};
   }
 `;
 

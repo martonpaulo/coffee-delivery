@@ -21,13 +21,21 @@ export const defaultTheme = {
     darkPurple: "#4B2995",
   },
 
-  screens: {
-    small: "@media (max-width: 480px)",
-    medium: "@media (min-width: 481px) and (max-width: 768px)",
-    large: "@media (min-width: 769px)",
+  breakpoints: {
+    sm: "@media (max-width: 480px)",
+    md: "@media (min-width: 481px) and (max-width: 768px)",
+    lg: "@media (min-width: 769px) and (max-width: 1188px)",
+    xl: "@media (min-width: 1189px)",
 
-    minMedium: "@media (min-width: 481px)",
-    maxMedium: "@media (max-width: 768px)",
+    min: {
+      md: "@media (min-width: 481px)",
+      lg: "@media (min-width: 1189px)",
+    },
+
+    max: {
+      md: "@media (max-width: 768px)",
+      lg: "@media (max-width: 1188px)",
+    },
   },
 
   fonts: {
