@@ -74,12 +74,11 @@ const coffeeImgEnum: CoffeeImgListType = {
   irishCoffee: { src: irishCoffee, alt: "Irish coffee in a glass cup" },
 };
 
-interface CoffeeImageProps {
+interface CoffeeImageProps extends ImageProps {
   name: keyof CoffeeImgListType;
-  props?: ImageProps;
 }
 
-export function CoffeeImage({ name, props }: CoffeeImageProps) {
+export function CoffeeImage({ name, ...props }: CoffeeImageProps) {
   const { src, alt } = coffeeImgEnum[name];
   return <img src={src} alt={alt} {...props} />;
 }

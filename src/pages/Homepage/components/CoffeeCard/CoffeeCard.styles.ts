@@ -53,7 +53,7 @@ export const FooterContainer = styled.footer`
   width: 100%;
 `;
 
-export const PriceWrapper = styled.div`
+export const PriceContainer = styled.div`
   display: flex;
   align-items: baseline;
   gap: 0.125rem;
@@ -63,4 +63,6 @@ export const ActionsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+
+  height: 2.375rem;
 `;

@@ -4,7 +4,7 @@ export const QuantitySelectorWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 2.375rem;
+  height: 100%;
   width: 4.5rem;
   border-radius: 6px;
   background-color: ${(props) => props.theme.colors.baseButton};

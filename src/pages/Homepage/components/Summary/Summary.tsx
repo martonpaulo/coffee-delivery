@@ -13,10 +13,10 @@ import {
 import { TextL, TextM, TitleXL } from "@/styles/typography";
 
 const BENEFITS = [
-  { Icon: ShoppingCart, color: "darkYellow", text: "Easy and secure ordering" },
-  { Icon: Package, color: "baseText", text: "Packaging that keeps it fresh" },
-  { Icon: Timer, color: "yellow", text: "Fast, trackable delivery" },
-  { Icon: Coffee, color: "purple", text: "Your coffee, always perfect" },
+  { icon: ShoppingCart, color: "darkYellow", text: "Easy and secure ordering" },
+  { icon: Package, color: "baseText", text: "Packaging that keeps it fresh" },
+  { icon: Timer, color: "yellow", text: "Fast, trackable delivery" },
+  { icon: Coffee, color: "purple", text: "Your coffee, always perfect" },
 ] as const;
 
 export function Summary() {
@@ -31,8 +31,8 @@ export function Summary() {
         </TitleSection>
 
         <BenefitsList>
-          {BENEFITS.map(({ Icon, color, text }) => (
-            <TextWithIcon key={text} Icon={Icon} color={color}>
+          {BENEFITS.map(({ icon, color, text }) => (
+            <TextWithIcon key={text} icon={icon} color={color}>
               <TextM>{text}</TextM>
             </TextWithIcon>
           ))}

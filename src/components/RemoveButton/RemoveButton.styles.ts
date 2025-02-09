@@ -22,7 +22,6 @@ export const RemoveButtonWrapper = styled.button`
   &:hover,
   &:focus {
     background-color: ${(props) => props.theme.colors.baseHover};
-    color: ${(props) => props.theme.colors.darkPurple};
 
     span {
       color: ${(props) => props.theme.colors.baseSubtitle};

@@ -67,7 +67,8 @@ In the project directory, you can run the following scripts:
 - [x] Componentization
 - [x] Display a list of available coffee products
 - [x] Lists and keys in React
-- [ ] Include a limit of items for each product
+- [x] Include a limit of items for each product
+- [ ] Add responsive layout
 - [ ] State management
 - [ ] Context API
 - [ ] LocalStorage

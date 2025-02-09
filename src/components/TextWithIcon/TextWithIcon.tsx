@@ -9,13 +9,13 @@ import {
 import { ColorType } from "@/types/color";
 
 interface TextWithIconProps {
-  Icon: ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;
+  icon: ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;
   color?: ColorType;
   children: ReactNode;
 }
 
 export function TextWithIcon({
-  Icon,
+  icon: Icon,
   color = "purple",
   children,
 }: TextWithIconProps) {

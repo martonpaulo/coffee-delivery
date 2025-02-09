@@ -23,19 +23,19 @@ export function SuccessPage() {
         </SuccessMessage>
 
         <DeliveryDetails>
-          <TextWithIcon Icon={MapPin}>
+          <TextWithIcon icon={MapPin}>
             <TextM>
               Delivery to <b>Calle Gran Vía, 28</b>
             </TextM>
             <TextM>Salamanca, 28013 Madrid, Spain</TextM>
           </TextWithIcon>
 
-          <TextWithIcon Icon={Timer} color="yellow">
+          <TextWithIcon icon={Timer} color="yellow">
             <TextM>Estimated arrival</TextM>
             <TextM $bold>20 to 30 min</TextM>
           </TextWithIcon>
 
-          <TextWithIcon Icon={CurrencyDollar} color="darkYellow">
+          <TextWithIcon icon={CurrencyDollar} color="darkYellow">
             <TextM>Pay on delivery</TextM>
             <TextM $bold>Credit Card</TextM>
           </TextWithIcon>

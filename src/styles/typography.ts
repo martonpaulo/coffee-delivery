@@ -87,8 +87,10 @@ export const TextS = styled.p<{ $bold?: boolean; $color?: ColorType }>`
 export const TextXS = styled.p`
   font-family: ${(props) => props.theme.fonts.text};
   font-size: ${(props) => props.theme.fontSizes.textXS};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
+  font-weight: ${(props) => props.theme.fontWeights.regular};
   line-height: ${(props) => props.theme.lineHeights.default};
+  color: ${(props) => props.theme.colors.baseLabel};
+  font-style: italic;
 `;
 
 export const Tag = styled.span`

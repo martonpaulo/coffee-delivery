@@ -1,19 +1,15 @@
+import { ButtonHTMLAttributes } from "react";
+
 import { QuantityButtonWrapper } from "@/components/QuantityButton/QuantityButton.styles";
 import { IconType } from "@/types/icon";
 
-interface QuantityButtonProps {
-  onClick: () => void;
+interface QuantityButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon: IconType;
-  disabled?: boolean;
 }
 
-export function QuantityButton({
-  onClick,
-  icon: Icon,
-  disabled,
-}: QuantityButtonProps) {
+export function QuantityButton({ icon: Icon, ...props }: QuantityButtonProps) {
   return (
-    <QuantityButtonWrapper onClick={onClick} disabled={disabled}>
+    <QuantityButtonWrapper {...props}>
       <Icon size={14} weight="bold" />
     </QuantityButtonWrapper>
   );

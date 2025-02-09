@@ -8,24 +8,28 @@ import {
 import { TextM } from "@/styles/typography";
 
 interface QuantitySelectorProps {
-  quantity: number;
   maxQuantity: number;
+  quantity: number;
   setQuantity: (quantity: number) => void;
 }
 
 export function QuantitySelector({
-  quantity,
   maxQuantity,
+  quantity,
   setQuantity,
 }: QuantitySelectorProps) {
-  const updateQuantity = (change: number) => {
-    setQuantity(Math.min(Math.max(quantity + change, 1), maxQuantity));
+  const increment = () => {
+    setQuantity(Math.min(quantity + 1, maxQuantity));
+  };
+
+  const decrement = () => {
+    setQuantity(Math.max(quantity - 1, 1));
   };
 
   return (
     <QuantitySelectorWrapper>
       <QuantityButton
-        onClick={() => updateQuantity(-1)}
+        onClick={decrement}
         icon={Minus}
         disabled={quantity === 1}
       />
@@ -35,7 +39,7 @@ export function QuantitySelector({
       </QuantityTextWrapper>
 
       <QuantityButton
-        onClick={() => updateQuantity(1)}
+        onClick={increment}
         icon={Plus}
         disabled={quantity === maxQuantity}
       />

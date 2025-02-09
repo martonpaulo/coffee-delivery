@@ -9,7 +9,7 @@ import {
   DetailsContainer,
   FooterContainer,
   ImageWrapper,
-  PriceWrapper,
+  PriceContainer,
   TagItem,
   TagList,
 } from "@/pages/Homepage/components/CoffeeCard/CoffeeCard.styles";
@@ -49,10 +49,10 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       </DetailsContainer>
 
       <FooterContainer>
-        <PriceWrapper>
+        <PriceContainer>
           <TextS>$</TextS>
           <TitleM $color="baseText">{price.toFixed(2)}</TitleM>
-        </PriceWrapper>
+        </PriceContainer>
 
         <ActionsContainer>
           <QuantitySelector

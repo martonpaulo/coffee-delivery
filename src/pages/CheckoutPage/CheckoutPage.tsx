@@ -1,18 +1,29 @@
-import { CartButton } from "@/components/CartButton/CartButton";
-import { RemoveButton } from "@/components/RemoveButton/RemoveButton";
-import { CheckoutPageContainer } from "@/pages/CheckoutPage/CheckoutPage.styles";
+import {
+  AddressAndPaymentContainer,
+  CheckoutPageContainer,
+  CompleteOrderContainer,
+  SelectedCoffeesContainer,
+} from "@/pages/CheckoutPage/CheckoutPage.styles";
+import { DeliveryAddress } from "@/pages/CheckoutPage/components/DeliveryAddress/DeliveryAddress";
+import { PaymentMethod } from "@/pages/CheckoutPage/components/PaymentMethod/PaymentMethod";
+import { SelectedCoffees } from "@/pages/CheckoutPage/components/SelectedCoffees/SelectedCoffees";
+import { TitleXS } from "@/styles/typography";
 
 export function CheckoutPage() {
-  const handleRemoveButtonClick = () => {
-    console.log("Remove button clicked");
-  };
-
   return (
     <CheckoutPageContainer>
-      <h1>Checkout Page</h1>
+      <CompleteOrderContainer>
+        <TitleXS>Complete your order</TitleXS>
+        <AddressAndPaymentContainer>
+          <DeliveryAddress />
+          <PaymentMethod />
+        </AddressAndPaymentContainer>
+      </CompleteOrderContainer>
 
-      <CartButton itemsCount={2} color="lightYellow" />
-      <RemoveButton onClick={handleRemoveButtonClick} />
+      <SelectedCoffeesContainer>
+        <TitleXS>Selected Coffees</TitleXS>
+        <SelectedCoffees />
+      </SelectedCoffeesContainer>
     </CheckoutPageContainer>
   );
 }

@@ -1,15 +1,12 @@
 import { Trash } from "phosphor-react";
+import { ButtonHTMLAttributes } from "react";
 
 import { RemoveButtonWrapper } from "@/components/RemoveButton/RemoveButton.styles";
 import { ButtonM } from "@/styles/typography";
 
-interface RemoveButtonProps {
-  onClick: () => void;
-}
-
-export function RemoveButton({ onClick }: RemoveButtonProps) {
+export function RemoveButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <RemoveButtonWrapper onClick={onClick}>
+    <RemoveButtonWrapper {...props}>
       <Trash size={16} />
 
       <ButtonM>Remove</ButtonM>
