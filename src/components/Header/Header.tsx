@@ -21,10 +21,10 @@ export function Header() {
         </NavLink>
 
         <HeaderActions>
-          <Tooltip text="You can't change your location yet">
+          <Tooltip text="You can't change location yet">
             <LocationButton>
               <MapPin size={22} weight="fill" />
-              <TextS>Madrid, Spain</TextS>
+              <TextS>Barcelona, CAT</TextS>
             </LocationButton>
           </Tooltip>
 

@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-export const TooltipWrapper = styled.div`
+interface TooltipWrapperProps {
+  $maxWidth: boolean;
+}
+
+export const TooltipWrapper = styled.div<TooltipWrapperProps>`
   position: relative;
   display: inline-block;
+  width: ${(props) => props.$maxWidth && "100%"};
 `;
 
 export interface TooltipBoxProps {

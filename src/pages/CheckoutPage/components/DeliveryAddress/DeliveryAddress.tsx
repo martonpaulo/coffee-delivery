@@ -1,6 +1,7 @@
 import { MapPinLine } from "phosphor-react";
 
-import { InputText } from "@/components/InputText/InputText";
+import { Input } from "@/components/Input/Input";
+import { Tooltip } from "@/components/Tooltip/Tooltip";
 import { CheckoutInstruction } from "@/pages/CheckoutPage/components/CheckoutInstruction/CheckoutInstruction";
 import {
   AddressFormContainer,
@@ -20,23 +21,23 @@ export function DeliveryAddress() {
 
       <AddressFormContainer>
         <AddressFormSection>
-          <InputText
-            type="text"
-            placeholder="Postal Code"
-            customSize="medium"
-          />
+          <Input type="text" placeholder="Postal Code" customSize="medium" />
         </AddressFormSection>
         <AddressFormSection>
-          <InputText type="text" placeholder="Street" />
-          <InputText type="number" placeholder="Number" customSize="small" />
+          <Input type="text" placeholder="Street" />
+          <Input type="number" placeholder="Number" customSize="small" />
         </AddressFormSection>
         <AddressFormSection>
-          <InputText type="text" placeholder="Additional Info" optional />
+          <Input type="text" placeholder="Additional Info" optional />
         </AddressFormSection>
         <AddressFormSection>
-          <InputText type="text" placeholder="Neighborhood" />
-          <InputText type="text" placeholder="City" />
-          <InputText type="text" placeholder="State" />
+          <Input type="text" placeholder="Neighborhood" />
+          <Tooltip text="You can't change location yet">
+            <Input type="text" placeholder="City" value="Barcelona" readOnly />
+          </Tooltip>
+          <Tooltip text="You can't change location yet">
+            <Input type="text" placeholder="State" value="Catalonia" readOnly />
+          </Tooltip>
         </AddressFormSection>
       </AddressFormContainer>
     </DeliveryAddressContainer>

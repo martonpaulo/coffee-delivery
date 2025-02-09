@@ -12,6 +12,7 @@ interface TooltipProps {
   active?: boolean;
   children: ReactNode;
   position?: TooltipBoxProps["$position"];
+  maxWidth?: boolean;
 }
 
 export function Tooltip({
@@ -19,6 +20,7 @@ export function Tooltip({
   active = true,
   children,
   position = "bottom",
+  maxWidth = false,
 }: TooltipProps) {
   const [visible, setVisible] = useState(false);
 
@@ -31,7 +33,11 @@ export function Tooltip({
   };
 
   return (
-    <TooltipWrapper onMouseOver={displayTooltip} onMouseLeave={hideTooltip}>
+    <TooltipWrapper
+      onMouseOver={displayTooltip}
+      onMouseLeave={hideTooltip}
+      $maxWidth={maxWidth}
+    >
       {children}
       {active && visible && (
         <TooltipBox $position={position}>

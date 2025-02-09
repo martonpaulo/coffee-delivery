@@ -56,6 +56,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
     <Tooltip
       text="Sold out, but we’re working to restock it!"
       active={isOutOfStock}
+      maxWidth
     >
       <CoffeeCardContainer $disabled={isOutOfStock}>
         <ImageWrapper>

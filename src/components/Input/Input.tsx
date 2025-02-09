@@ -1,30 +1,30 @@
 import { InputHTMLAttributes } from "react";
 
 import {
-  InputTextContainer,
+  InputContainer,
   InputWrapper,
   OptionalText,
-} from "@/components/InputText/InputText.styles";
+} from "@/components/Input/Input.styles";
 import { TextXS } from "@/styles/typography";
 
-export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   optional?: boolean;
   customSize?: "small" | "medium" | "large";
 }
 
-export function InputText({
+export function Input({
   optional = false,
   customSize = "large",
   ...props
-}: InputTextProps) {
+}: InputProps) {
   return (
-    <InputTextContainer $size={customSize}>
+    <InputContainer $size={customSize}>
       <InputWrapper $hasOptional={optional} {...props} />
       {optional && (
         <OptionalText>
           <TextXS $italic>Optional</TextXS>
         </OptionalText>
       )}
-    </InputTextContainer>
+    </InputContainer>
   );
 }

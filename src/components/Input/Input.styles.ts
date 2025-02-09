@@ -6,11 +6,11 @@ const SIZE_VARIANTS = {
   large: "100%",
 } as const;
 
-interface InputTextContainerProps {
+interface InputContainerProps {
   $size: "small" | "medium" | "large";
 }
 
-export const InputTextContainer = styled.div<InputTextContainerProps>`
+export const InputContainer = styled.div<InputContainerProps>`
   position: relative;
   width: ${(props) => SIZE_VARIANTS[props.$size]};
 
@@ -50,6 +50,10 @@ export const InputWrapper = styled.input<InputWrapperProps>`
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+
+  &[readonly] {
+    cursor: not-allowed;
   }
 `;
 
