@@ -21,6 +21,7 @@ export const InputContainer = styled.div<InputContainerProps>`
 
 interface InputWrapperProps {
   $hasOptional?: boolean;
+  $hasError?: boolean;
 }
 
 export const InputWrapper = styled.input<InputWrapperProps>`
@@ -34,16 +35,18 @@ export const InputWrapper = styled.input<InputWrapperProps>`
   background-color: ${(props) => props.theme.colors.baseInput};
   color: ${(props) => props.theme.colors.baseText};
 
+  border-color: ${(props) => props.$hasError && props.theme.colors.darkYellow};
+
   &::placeholder {
     color: ${(props) => props.theme.colors.baseLabel};
   }
 
-  &:active {
-    border-color: ${(props) => props.theme.colors.darkYellow};
-  }
-
   &:focus {
-    border: 1px solid ${(props) => props.theme.colors.baseButton};
+    border: 1px solid
+      ${(props) =>
+        props.$hasError
+          ? props.theme.colors.darkYellow
+          : props.theme.colors.baseButton};
   }
 
   &::-webkit-outer-spin-button,

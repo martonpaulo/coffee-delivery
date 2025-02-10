@@ -13,3 +13,9 @@ export const PaymentMethodContainer = styled.div`
     padding: 1.5rem;
   }
 `;
+
+export const PaymentInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;

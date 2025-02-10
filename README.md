@@ -81,10 +81,10 @@ In the project directory, you can run the following scripts:
 - [x] Increase or remove item quantities in the cart
 - [x] Show the total number of items in the cart in the header
 - [x] Display the total cost based on item quantity and price
-- [ ] Create a form for users to enter their address
-- [ ] Add form validation
-- [ ] Add project recording
-- [ ] Add project to portfolio
+- [x] Create a form for users to enter their address
+- [x] Add form validation
+- [x] Add project recording
+- [x] Add project to portfolio
 
 ## 📄 License
 

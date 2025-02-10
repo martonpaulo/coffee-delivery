@@ -1,8 +1,6 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
 
 import { ButtonWithLabel } from "@/components/ButtonWithLabel/ButtonWithLabel";
-import { LoadingDialog } from "@/components/LoadingDialog/LoadingDialog";
 import { CartContext } from "@/contexts/cart/CartContext";
 import { coffeeList } from "@/data/coffeeData";
 import { CoffeeOrder } from "@/pages/CheckoutPage/components/CoffeeOrder/CoffeeOrder";
@@ -16,23 +14,19 @@ import { TextL, TextM, TextS } from "@/styles/typography";
 
 const DELIVERY_FEE = 3.0;
 
-export function SelectedCoffees() {
-  const { cartItems, clearCart, cartTotalPrice } = useContext(CartContext);
-  const [confirmOrderLoading, setConfirmOrderLoading] = useState(false);
-  const navigate = useNavigate();
+interface SelectedCoffeesProps {
+  onClickConfirmOrder: () => void;
+}
+
+export function SelectedCoffees({ onClickConfirmOrder }: SelectedCoffeesProps) {
+  const { cartItems, cartTotalPrice } = useContext(CartContext);
 
   const coffees = cartItems.map((item) => {
     return coffeeList.find((coffee) => coffee.id === item.id);
   });
 
-  const handleSendOrder = () => {
-    setConfirmOrderLoading(true);
-
-    setTimeout(() => {
-      setConfirmOrderLoading(false);
-      navigate("/success");
-      clearCart();
-    }, 5000);
+  const handleClickConfirmOrder = () => {
+    onClickConfirmOrder();
   };
 
   const totalPrice = cartTotalPrice + DELIVERY_FEE;
@@ -65,12 +59,10 @@ export function SelectedCoffees() {
         </PriceValueContainer>
       </PriceWrapper>
 
-      <ButtonWithLabel label="Confirm Order" onClick={handleSendOrder} />
-
-      <LoadingDialog
-        title="Hang tight!"
-        message=" We're confirming your order. This won't take long."
-        isOpen={confirmOrderLoading}
+      <ButtonWithLabel
+        label="Confirm Order"
+        onClick={handleClickConfirmOrder}
+        type="submit"
       />
     </SelectedCoffeesContainer>
   );

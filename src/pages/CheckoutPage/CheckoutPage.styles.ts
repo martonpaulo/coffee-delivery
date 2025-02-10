@@ -12,7 +12,7 @@ export const CheckoutPageContainer = styled.div`
   }
 `;
 
-export const CompleteOrderContainer = styled.div`
+export const CompleteOrderContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;

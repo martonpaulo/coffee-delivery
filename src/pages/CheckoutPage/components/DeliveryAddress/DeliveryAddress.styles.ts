@@ -13,7 +13,7 @@ export const DeliveryAddressContainer = styled.div`
   }
 `;
 
-export const AddressFormContainer = styled.form`
+export const AddressFormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -26,4 +26,10 @@ export const AddressFormSection = styled.div`
   ${(props) => props.theme.breakpoints.max.md} {
     flex-direction: column;
   }
+`;
+
+export const ErrorMessageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 `;

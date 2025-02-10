@@ -1,4 +1,5 @@
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
+import { useLocation } from "react-router-dom";
 
 import { DeliveryIllustrationImage } from "@/assets";
 import { TextWithIcon } from "@/components/TextWithIcon/TextWithIcon";
@@ -11,7 +12,33 @@ import {
 } from "@/pages/SuccessPage/SuccessPage.styles";
 import { TextL, TextM, TitleL } from "@/styles/typography";
 
+const PAYMENT_METHODS = {
+  credit: "Credit Card",
+  debit: "Debit Card",
+  cash: "Cash",
+};
+
 export function SuccessPage() {
+  const { state: orderData } = useLocation();
+
+  if (!orderData) {
+    return <div>No order data provided</div>;
+  }
+
+  const {
+    street,
+    number: houseNumber,
+    neighborhood,
+    city,
+    state: region,
+    paymentType,
+  } = orderData;
+
+  const addressLine = `${street}, ${houseNumber}`;
+  const fullAddress = `${neighborhood}, ${city}, ${region}`;
+  const paymentMethod =
+    PAYMENT_METHODS[paymentType as keyof typeof PAYMENT_METHODS];
+
   return (
     <SuccessPageContainer>
       <OrderConfirmationContainer>
@@ -25,9 +52,9 @@ export function SuccessPage() {
         <DeliveryDetails>
           <TextWithIcon icon={MapPin}>
             <TextM>
-              Delivery to <b>Calle Gran Vía, 28</b>
+              Delivery to <b>{addressLine}</b>
             </TextM>
-            <TextM>Salamanca, 28013 Madrid, Spain</TextM>
+            <TextM>{fullAddress}</TextM>
           </TextWithIcon>
 
           <TextWithIcon icon={Timer} color="yellow">
@@ -37,7 +64,7 @@ export function SuccessPage() {
 
           <TextWithIcon icon={CurrencyDollar} color="darkYellow">
             <TextM>Pay on delivery</TextM>
-            <TextM $bold>Credit Card</TextM>
+            <TextM $bold>{paymentMethod}</TextM>
           </TextWithIcon>
         </DeliveryDetails>
       </OrderConfirmationContainer>
