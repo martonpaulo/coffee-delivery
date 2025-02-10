@@ -1,5 +1,5 @@
 import { ShoppingCart } from "phosphor-react";
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import {
@@ -7,14 +7,13 @@ import {
   ItemsCountContainer,
 } from "@/components/CartButton/CartButton.styles";
 import { Tooltip } from "@/components/Tooltip/Tooltip";
+import { CartContext } from "@/contexts/cart/CartContext";
 import { TextS } from "@/styles/typography";
 
-interface CartButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  itemsCount?: number;
-}
+export function CartButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
+  const { cartItemCount } = useContext(CartContext);
 
-export function CartButton({ itemsCount = 0, ...props }: CartButtonProps) {
-  const isDisabled = itemsCount === 0;
+  const isDisabled = cartItemCount === 0;
   const tooltipText = isDisabled ? "Your cart is empty" : "Go to checkout";
 
   return (
@@ -24,10 +23,10 @@ export function CartButton({ itemsCount = 0, ...props }: CartButtonProps) {
           <ShoppingCart size={22} weight="fill" />
         ) : (
           <NavLink to="/checkout">
-            {itemsCount > 0 && (
+            {cartItemCount > 0 && (
               <ItemsCountContainer>
                 <TextS $bold $color="white">
-                  {itemsCount}
+                  {cartItemCount}
                 </TextS>
               </ItemsCountContainer>
             )}

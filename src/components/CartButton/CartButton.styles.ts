@@ -5,7 +5,6 @@ export const CartButtonWrapper = styled.button`
   height: 2.375rem;
   border-radius: 6px;
   display: flex;
-  align-items: center;
   gap: 0.25rem;
   padding: 0.5rem;
   cursor: pointer;

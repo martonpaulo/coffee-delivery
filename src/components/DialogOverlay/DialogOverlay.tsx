@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { createPortal } from "react-dom";
 
 import {
   DialogContainer,
@@ -31,7 +32,7 @@ export function DialogOverlay({
     e.stopPropagation();
   }
 
-  return (
+  return createPortal(
     <Overlay onClick={onClickOutside}>
       <DialogContainer onClick={handleDialogContainerClick}>
         <Message>
@@ -40,6 +41,7 @@ export function DialogOverlay({
         </Message>
         {children}
       </DialogContainer>
-    </Overlay>
+    </Overlay>,
+    document.body
   );
 }

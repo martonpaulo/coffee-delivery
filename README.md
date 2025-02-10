@@ -71,18 +71,18 @@ In the project directory, you can run the following scripts:
 - [x] Add responsive layout
 - [x] If user tries to add more items than available, show a message
 - [x] Review checkout flow
-- [ ] Add a items number in the cart icon in the header
-- [ ] Add form validation
-- [ ] State management
-- [ ] Context API
-- [ ] LocalStorage
-- [ ] State immutability
-- [ ] Array manipulation with the `reduce` method
-- [ ] Add a specific quantity of items to the cart
-- [ ] Increase or remove item quantities in the cart
+- [x] Add a items number in the cart icon in the header
+- [x] State management
+- [x] Context API
+- [x] LocalStorage
+- [x] State immutability
+- [x] Array manipulation with the `reduce` method
+- [x] Add a specific quantity of items to the cart
+- [x] Increase or remove item quantities in the cart
+- [x] Show the total number of items in the cart in the header
+- [x] Display the total cost based on item quantity and price
 - [ ] Create a form for users to enter their address
-- [ ] Show the total number of items in the cart in the header
-- [ ] Display the total cost based on item quantity and price
+- [ ] Add form validation
 - [ ] Add project recording
 - [ ] Add project to portfolio
 

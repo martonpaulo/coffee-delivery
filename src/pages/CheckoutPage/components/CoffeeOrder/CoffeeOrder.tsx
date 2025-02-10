@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { CoffeeImage } from "@/assets";
 import { Dialog } from "@/components/Dialog/Dialog";
 import { QuantitySelector } from "@/components/QuantitySelector/QuantitySelector";
 import { RemoveButton } from "@/components/RemoveButton/RemoveButton";
+import { CartContext } from "@/contexts/cart/CartContext";
 import {
   ActionsContainer,
   CoffeeOrderContainer,
@@ -20,11 +22,26 @@ interface CoffeeOrderProps {
 }
 
 export function CoffeeOrder({ coffee }: CoffeeOrderProps) {
-  const { imageComponent, name, price, stock } = coffee;
-  const [quantity, setQuantity] = useState(1);
+  const {
+    getCartItemQuantity,
+    getStockQuantity,
+    removeFromCart,
+    updateCartItem,
+    cartItemCount,
+  } = useContext(CartContext);
+  const { id, imageComponent, name, price } = coffee;
+
+  const quantityInCart = getCartItemQuantity(id);
+  const stock = getStockQuantity(id);
+  const maxQuantity = stock + quantityInCart;
+
+  const [quantity, setQuantity] = useState(quantityInCart);
   const [isDialogOpen, setDialogOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSetQuantity = (quantity: number) => {
+    updateCartItem(id, quantity);
     setQuantity(quantity);
   };
 
@@ -33,12 +50,18 @@ export function CoffeeOrder({ coffee }: CoffeeOrderProps) {
   };
 
   const handleRemoveItem = () => {
+    removeFromCart(id);
     setDialogOpen(false);
+    if (quantityInCart === cartItemCount) {
+      navigate("/");
+    }
   };
 
   const handleCloseDialog = () => {
     setDialogOpen(false);
   };
+
+  const totalPrice = price * quantity;
 
   return (
     <CoffeeOrderContainer>
@@ -53,7 +76,7 @@ export function CoffeeOrder({ coffee }: CoffeeOrderProps) {
           <ActionsContainer>
             <QuantitySelector
               quantity={quantity}
-              maxQuantity={stock}
+              maxQuantity={maxQuantity}
               setQuantity={handleSetQuantity}
             />
             <RemoveButton onClick={handleOpenRemoveDialog} />
@@ -73,7 +96,7 @@ export function CoffeeOrder({ coffee }: CoffeeOrderProps) {
       </DetailsAndActionsContainer>
 
       <PriceContainer>
-        <TextM $bold>$ {price.toFixed(2)}</TextM>
+        <TextM $bold>$ {totalPrice.toFixed(2)}</TextM>
       </PriceContainer>
     </CoffeeOrderContainer>
   );

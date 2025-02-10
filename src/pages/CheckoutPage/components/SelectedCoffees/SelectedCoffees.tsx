@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { ButtonWithLabel } from "@/components/ButtonWithLabel/ButtonWithLabel";
 import { LoadingDialog } from "@/components/LoadingDialog/LoadingDialog";
+import { CartContext } from "@/contexts/cart/CartContext";
+import { coffeeList } from "@/data/coffeeData";
 import { CoffeeOrder } from "@/pages/CheckoutPage/components/CoffeeOrder/CoffeeOrder";
 import {
   CoffeeListContainer,
@@ -11,15 +13,17 @@ import {
   SelectedCoffeesContainer,
 } from "@/pages/CheckoutPage/components/SelectedCoffees/SelectedCoffees.styles";
 import { TextL, TextM, TextS } from "@/styles/typography";
-import { CoffeeType } from "@/types/coffee";
 
-interface SelectedCoffeesProps {
-  coffees: CoffeeType[];
-}
+const DELIVERY_FEE = 3.0;
 
-export function SelectedCoffees({ coffees }: SelectedCoffeesProps) {
+export function SelectedCoffees() {
+  const { cartItems, clearCart, cartTotalPrice } = useContext(CartContext);
   const [confirmOrderLoading, setConfirmOrderLoading] = useState(false);
   const navigate = useNavigate();
+
+  const coffees = cartItems.map((item) => {
+    return coffeeList.find((coffee) => coffee.id === item.id);
+  });
 
   const handleSendOrder = () => {
     setConfirmOrderLoading(true);
@@ -27,33 +31,36 @@ export function SelectedCoffees({ coffees }: SelectedCoffeesProps) {
     setTimeout(() => {
       setConfirmOrderLoading(false);
       navigate("/success");
+      clearCart();
     }, 5000);
   };
+
+  const totalPrice = cartTotalPrice + DELIVERY_FEE;
 
   return (
     <SelectedCoffeesContainer>
       <CoffeeListContainer>
         {coffees.map((coffee) => (
-          <PriceWrapper key={coffee.id}>
-            <CoffeeOrder coffee={coffee} />
+          <PriceWrapper key={coffee!.id}>
+            <CoffeeOrder coffee={coffee!} />
           </PriceWrapper>
         ))}
       </CoffeeListContainer>
       <PriceWrapper>
         <PriceValueContainer>
           <TextS $color="baseText">Items Total</TextS>
-          <TextM>$12.00</TextM>
+          <TextM>${cartTotalPrice.toFixed(2)}</TextM>
         </PriceValueContainer>
         <PriceValueContainer>
           <TextS $color="baseText">Delivery Fee</TextS>
-          <TextM>$2.00</TextM>
+          <TextM>${DELIVERY_FEE.toFixed(2)}</TextM>
         </PriceValueContainer>
         <PriceValueContainer>
           <TextL $color="baseSubtitle" $bold>
             Total
           </TextL>
           <TextL $color="baseSubtitle" $bold>
-            $14.00
+            ${totalPrice.toFixed(2)}
           </TextL>
         </PriceValueContainer>
       </PriceWrapper>

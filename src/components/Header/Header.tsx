@@ -28,7 +28,7 @@ export function Header() {
             </LocationButton>
           </Tooltip>
 
-          <CartButton itemsCount={0} />
+          <CartButton />
         </HeaderActions>
       </HeaderContainer>
     </HeaderWrapper>

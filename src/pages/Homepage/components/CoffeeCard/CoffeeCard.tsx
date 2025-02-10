@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { CoffeeImage } from "@/assets";
@@ -6,6 +6,7 @@ import { AddToCartButton } from "@/components/AddToCartButton/AddToCartButton";
 import { Dialog } from "@/components/Dialog/Dialog";
 import { QuantitySelector } from "@/components/QuantitySelector/QuantitySelector";
 import { Tooltip } from "@/components/Tooltip/Tooltip";
+import { CartContext } from "@/contexts/cart/CartContext";
 import {
   ActionsContainer,
   CoffeeCardContainer,
@@ -24,7 +25,11 @@ interface CoffeeCardProps {
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
-  const { imageComponent, tags, name, description, price, stock } = coffee;
+  const { getStockQuantity, addToCart } = useContext(CartContext);
+  const { id, imageComponent, tags, name, description, price } = coffee;
+
+  const stock = getStockQuantity(id);
+
   const [quantity, setQuantity] = useState(stock > 0 ? 1 : 0);
   const [isDialogOpen, setDialogOpen] = useState(false);
   const navigate = useNavigate();
@@ -35,8 +40,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
     setQuantity(quantity);
   };
 
-  const handleAddToCart = () => {
+  const handleAddToCartButtonClick = () => {
     setDialogOpen(true);
+    addToCart(id, quantity, price);
+    if (quantity === stock) setQuantity(0);
+    else setQuantity(1);
   };
 
   const handleGoToCart = () => {
@@ -54,7 +62,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
 
   return (
     <Tooltip
-      text="Sold out, but we’re working to restock it!"
+      text="Out of stock, but we’re working to get more!"
       active={isOutOfStock}
       maxWidth
     >
@@ -89,7 +97,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
               setQuantity={handleSetQuantity}
             />
             <AddToCartButton
-              onClick={handleAddToCart}
+              onClick={handleAddToCartButtonClick}
               disabled={isOutOfStock}
             />
           </ActionsContainer>
